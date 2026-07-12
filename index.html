@@ -4,24 +4,177 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zenivita — Salud Preventiva Femenina</title>
+<meta name="description" content="Programas digitales paso a paso para mujeres: digestión ligera, sueño profundo y energía renovada. Acceso inmediato.">
 <style>
+:root{--verde:#1E5638;--verdeclaro:#2E7D52;--dourado:#B98A2F;--douradoclaro:#C9A85C;--crema:#FAF7EF;--txt:#33403a}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#FAF7F2;color:#2B2B2B;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-.box{max-width:520px;text-align:center}
-h1{color:#6B3FA0;letter-spacing:4px;margin-bottom:8px}
-p{color:#666;margin-bottom:28px}
-a{display:block;background:#fff;border:1px solid #eee;border-radius:14px;padding:20px;margin-bottom:14px;text-decoration:none;color:#2B2B2B;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-a b{display:block;margin-bottom:4px}
-.verde b{color:#1E5638}.azul b{color:#1A2C4E}
-a span{font-size:.9rem;color:#888}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--txt);background:var(--crema);line-height:1.6}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+/* HERO */
+.hero{background:linear-gradient(135deg,#eef5ee 0%,#f9f3e3 100%);padding:48px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.logo{font-size:1.4rem;font-weight:800;letter-spacing:.18em;color:var(--verde);margin-bottom:28px}
+.logo::after{content:"";display:block;width:52px;height:3px;background:var(--douradoclaro);margin-top:6px;border-radius:2px}
+.hero h1{font-size:2.3rem;line-height:1.2;color:#22352b;margin-bottom:16px}
+.hero h1 span{color:var(--dourado)}
+.hero p.sub{font-size:1.1rem;color:#55635b;margin-bottom:26px}
+.hero-img{border-radius:20px;box-shadow:0 18px 45px rgba(30,86,56,.25);border:3px solid #fff;outline:1px solid var(--douradoclaro);aspect-ratio:4/5;object-fit:cover;width:100%}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--dourado),var(--douradoclaro));color:#fff;font-weight:700;padding:15px 32px;border-radius:40px;text-decoration:none;font-size:1.05rem;box-shadow:0 8px 22px rgba(185,138,47,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.sec{background:var(--verde);box-shadow:0 8px 22px rgba(30,86,56,.3)}
+.mini{font-size:.85rem;color:#84907f;margin-top:12px}
+/* PROBLEMAS */
+.problemas{padding:60px 0;background:#fff}
+h2.sec-t{text-align:center;font-size:1.8rem;color:#22352b;margin-bottom:8px}
+p.sec-s{text-align:center;color:#66735f;margin-bottom:38px;max-width:640px;margin-left:auto;margin-right:auto}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.p-card{background:var(--crema);border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06);border-top:3px solid var(--douradoclaro)}
+.p-card img{height:190px;width:100%;object-fit:cover}
+.p-card .pad{padding:20px 22px 24px}
+.p-card h3{color:var(--verde);font-size:1.1rem;margin-bottom:8px}
+.p-card p{font-size:.95rem;color:#55635b}
+/* PRODUCTOS */
+.productos{padding:60px 0}
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:860px;margin:0 auto}
+.prod{background:#fff;border-radius:18px;padding:30px 28px;box-shadow:0 10px 28px rgba(0,0,0,.08);display:flex;flex-direction:column}
+.prod{border-top:4px solid var(--douradoclaro)}
+.prod .tag{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.prod.verde .tag{color:var(--verdeclaro)}.prod.azul .tag{color:#1A2C4E}
+.prod h3{font-size:1.35rem;color:#22352b;margin-bottom:10px}
+.prod ul{list-style:none;margin:0 0 18px}
+.prod li{padding-left:26px;position:relative;margin-bottom:8px;font-size:.95rem;color:#55635b}
+.prod li::before{content:"✓";position:absolute;left:0;font-weight:800;color:var(--dourado)}
+.precio{font-size:1.5rem;font-weight:800;color:#22352b;margin-bottom:14px}
+.precio small{font-size:.85rem;font-weight:400;color:#84907f}
+.prod .btn{text-align:center;margin-top:auto}
+/* CONFIANZA */
+.conf{background:#fff;padding:50px 0}
+.c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:center;max-width:860px;margin:0 auto}
+.c-item{padding:10px}
+.c-item .ico{font-size:1.9rem;margin-bottom:8px}
+.c-item h4{color:var(--verde);margin-bottom:6px;font-size:1rem}
+.c-item p{font-size:.88rem;color:#66735f}
+footer{padding:34px 0;text-align:center;font-size:.85rem;color:#84907f;background:var(--verde)}
+footer,footer p{color:#e8e3d5}
+footer a{color:var(--douradoclaro)}
+@media(max-width:760px){
+ .hero-grid{grid-template-columns:1fr}
+ .hero-img{aspect-ratio:16/11;order:-1}
+ .hero h1{font-size:1.7rem}
+ .p-grid,.prod-grid,.c-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="box">
-<h1>ZENIVITA</h1>
-<p>Salud preventiva femenina</p>
-<a class="verde" href="/intestino.html"><b>🌿 Protocolo Intestino Ligero</b><span>Desinflama y regula tu intestino en 10 días</span></a>
-<a class="azul" href="/sueno.html"><b>🌙 Guía Sueño Reparador</b><span>10 estrategias para dormir profundo</span></a>
-</div>
+
+<section class="hero">
+ <div class="wrap">
+  <div class="logo">ZENIVITA</div>
+  <div class="hero-grid">
+   <div>
+    <h1>Tu cuerpo te está pidiendo un cambio. <span>Empieza hoy, paso a paso.</span></h1>
+    <p class="sub">Programas digitales de salud preventiva femenina: desinflama tu digestión, duerme profundo y recupera tu energía — con planes simples que caben en tu rutina real.</p>
+    <a class="btn" href="#productos">Ver los programas</a>
+    <p class="mini">Acceso inmediato · Garantía de 7 días · Pago seguro vía Hotmart</p>
+   </div>
+   <img class="hero-img" loading="eager" alt="Mujer sonriente disfrutando su bienestar"
+    src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=760&q=70&auto=format&fit=crop">
+  </div>
+ </div>
+</section>
+
+<section class="problemas">
+ <div class="wrap">
+  <h2 class="sec-t">¿Te reconoces en alguno de estos síntomas?</h2>
+  <p class="sec-s">No es "normal" vivir hinchada, agotada o durmiendo mal. Son señales de tu cuerpo — y tienen solución práctica.</p>
+  <div class="p-grid">
+   <div class="p-card">
+    <img loading="lazy" alt="Bebida detox natural con menta y limón" src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=640&q=70&auto=format&fit=crop">
+    <div class="pad">
+     <h3>Vientre hinchado y digestión pesada</h3>
+     <p>Terminas el día con el abdomen inflamado, gases o pesadez después de comer. Tu intestino necesita un reinicio suave, no dietas extremas.</p>
+    </div>
+   </div>
+   <div class="p-card">
+    <img loading="lazy" alt="Mujer durmiendo profundamente" src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?w=640&q=70&auto=format&fit=crop">
+    <div class="pad">
+     <h3>Sueño ligero y noches en vela</h3>
+     <p>Te despiertas a las 3 a.m., das vueltas en la cama y amaneces más cansada que ayer. Dormir profundo se entrena — noche a noche.</p>
+    </div>
+   </div>
+   <div class="p-card">
+    <img loading="lazy" alt="Mujer activa con energía" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&q=70&auto=format&fit=crop">
+    <div class="pad">
+     <h3>Energía por el suelo</h3>
+     <p>Café para arrancar, fuerza de voluntad para terminar el día. Cuando tu digestión y tu sueño funcionan, la energía vuelve sola.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="productos" id="productos">
+ <div class="wrap">
+  <h2 class="sec-t">Elige tu punto de partida</h2>
+  <p class="sec-s">Programas 100% digitales, en español, con planes día a día. Los recibes en tu correo apenas confirmas tu compra.</p>
+  <div class="prod-grid">
+   <div class="prod verde">
+    <div class="tag">🌿 Digestión</div>
+    <h3>Protocolo Intestino Ligero</h3>
+    <ul>
+     <li>Plan de 10 días en 3 fases: alivio, reparación y mantenimiento</li>
+     <li>Menús diarios + 8 recetas funcionales</li>
+     <li>Rutina simple de 15 minutos al día</li>
+    </ul>
+    <div class="precio">$9 USD <small>pago único</small></div>
+    <a class="btn sec" href="/intestino.html">Conocer el protocolo</a>
+   </div>
+   <div class="prod azul">
+    <div class="tag">🌙 Sueño</div>
+    <h3>Guía Sueño Reparador</h3>
+    <ul>
+     <li>10 estrategias probadas para dormir profundo</li>
+     <li>Ritual nocturno paso a paso + higiene del sueño</li>
+     <li>Plan de 7 noches para reiniciar tu descanso</li>
+    </ul>
+    <div class="precio">$9 USD <small>pago único</small></div>
+    <a class="btn sec" href="/sueno.html">Conocer la guía</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="conf">
+ <div class="wrap">
+  <h2 class="sec-t">Compra tranquila</h2>
+  <p class="sec-s">Así de simple funciona:</p>
+  <div class="c-grid">
+   <div class="c-item"><div class="ico">⚡</div><h4>Acceso inmediato</h4><p>Recibes tu programa en el correo apenas se confirma el pago. Léelo en celular, tablet o computadora.</p></div>
+   <div class="c-item"><div class="ico">🛡️</div><h4>Garantía de 7 días</h4><p>Si sientes que no es para ti, pides tu reembolso directo en Hotmart. Sin preguntas incómodas.</p></div>
+   <div class="c-item"><div class="ico">🔒</div><h4>Pago 100% seguro</h4><p>Procesado por Hotmart, plataforma líder en productos digitales en Latinoamérica.</p></div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <p><strong>ZENIVITA</strong> · Salud preventiva femenina</p>
+  <p>Contenido educativo. No sustituye la orientación de tu médico/a.</p>
+  <p>Contacto: <a href="mailto:renanrdw@gmail.com">renanrdw@gmail.com</a></p>
+ </div>
+</footer>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1298126082381332');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1298126082381332&ev=PageView&noscript=1"/></noscript>
+
 </body>
 </html>
