@@ -90,7 +90,7 @@
    2) Crear un formulario (o usar la API) y colocar la URL
       del endpoint abajo. El campo RESULTADO se envía junto.
 ===================================================== */
-var BREVO_ENDPOINT = ""; // TODO: URL del form Brevo (vacío = solo muestra el resultado)
+var BREVO_ENDPOINT = "https://1cd75ab9.sibforms.com/serve/MUIFAHbOPQzEuoGGEz6zUN9fWLL7C-1_sH6cecAbH_FvRhnn79YIuVo-BjSG8-ezU4_tFUJ9O_xclyVKOslCEJjI-PaweO6k_fBdVff-pmy5mGGpn9A8a3SRhM5vebcMmoH255z-mmTkSPkTN7SrG1bzt2g_SyxeE6mBZjlTzwvdheUgDBp30B7KoPUz3EbhqynFPQwybOiBgRoNqA==";
 
 var PREGUNTAS = [
   {t:"¿Cómo te sientes al despertar, la mayoría de los días?",
@@ -166,7 +166,7 @@ document.getElementById('leadform').addEventListener('submit', function(e){
   var nombre=document.getElementById('nombre').value, email=document.getElementById('email').value;
   if(BREVO_ENDPOINT){
     var fd=new FormData();
-    fd.append('NOMBRE',nombre); fd.append('EMAIL',email); fd.append('RESULTADO',R.tag);
+    fd.append('NOME',nombre); fd.append('EMAIL',email); fd.append('email_address_check',''); fd.append('locale','es');
     fetch(BREVO_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
   }
   var el=document.getElementById('result');
