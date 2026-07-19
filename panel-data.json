@@ -1,26 +1,99 @@
 {
-  "updated": "2026-07-19 18:40 (BRT)",
+  "updated": "2026-07-19 14:50 (BRT)",
   "currency": "US$",
-  "fx": { "from": "BRL", "usdRate": 0.185 },
-  "month": { "label": "Julho/2026", "daysElapsed": 19, "daysTotal": 31 },
+  "fx": {
+    "from": "BRL",
+    "usdRate": 0.196
+  },
+  "month": {
+    "label": "Julho/2026",
+    "daysElapsed": 19,
+    "daysTotal": 31
+  },
   "daily": [
-    {"d":"11/07","spend":1.25,"sales":0,"rev":0},
-    {"d":"12/07","spend":6.74,"sales":0,"rev":0},
-    {"d":"13/07","spend":9.43,"sales":1,"rev":9},
-    {"d":"14/07","spend":6.96,"sales":0,"rev":0},
-    {"d":"15/07","spend":1.92,"sales":0,"rev":0},
-    {"d":"16/07","spend":3.07,"sales":0,"rev":0},
-    {"d":"17/07","spend":2.89,"sales":0,"rev":0},
-    {"d":"18/07","spend":1.15,"sales":0,"rev":0},
-    {"d":"19/07","spend":0.65,"sales":0,"rev":0}
+    {
+      "d": "11/07",
+      "spend": 1.32,
+      "sales": 0,
+      "rev": 0
+    },
+    {
+      "d": "12/07",
+      "spend": 7.14,
+      "sales": 0,
+      "rev": 0
+    },
+    {
+      "d": "13/07",
+      "spend": 9.99,
+      "sales": 1,
+      "rev": 9
+    },
+    {
+      "d": "14/07",
+      "spend": 7.38,
+      "sales": 0,
+      "rev": 0
+    },
+    {
+      "d": "15/07",
+      "spend": 2.03,
+      "sales": 0,
+      "rev": 0
+    },
+    {
+      "d": "16/07",
+      "spend": 3.25,
+      "sales": 0,
+      "rev": 0
+    },
+    {
+      "d": "17/07",
+      "spend": 3.06,
+      "sales": 0,
+      "rev": 0
+    },
+    {
+      "d": "18/07",
+      "spend": 1.21,
+      "sales": 0,
+      "rev": 0
+    }
   ],
   "salesByProduct": [
-    {"name":"Intestino Ligero ($9)","qty":1,"price":9},
-    {"name":"Sueño ($9)","qty":0,"price":9},
-    {"name":"Protocolo 30 ($27)","qty":0,"price":27},
-    {"name":"Cuerpo Mov. ($47)","qty":0,"price":47}
+    {
+      "name": "Intestino Ligero ($9)",
+      "qty": 1,
+      "price": 9
+    },
+    {
+      "name": "Sueño ($9)",
+      "qty": 0,
+      "price": 9
+    },
+    {
+      "name": "Protocolo 30 ($27)",
+      "qty": 0,
+      "price": 27
+    },
+    {
+      "name": "Cuerpo Mov. ($47)",
+      "qty": 0,
+      "price": 47
+    }
   ],
   "hotmartNetFactor": 0.85,
-  "funnel": { "impressions":4714, "clicks":215, "lpviews":94, "checkouts":16, "sales":1 },
-  "goals": { "daily":1, "weekly":7, "monthly":30, "ticketTarget":15 }
+  "funnel": {
+    "impressions": 4688,
+    "clicks": 215,
+    "lpviews": 94,
+    "checkouts": 16,
+    "sales": 1
+  },
+  "goals": {
+    "daily": 1,
+    "weekly": 7,
+    "monthly": 30,
+    "ticketTarget": 15
+  }
 }
