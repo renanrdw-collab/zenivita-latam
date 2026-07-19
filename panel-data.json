@@ -1,0 +1,25 @@
+{
+  "updated": "2026-07-19 18:20 (BRT)",
+  "currency": "US$",
+  "month": { "label": "Julho/2026", "daysElapsed": 19, "daysTotal": 31 },
+  "daily": [
+    {"d":"11/07","spend":6.74,"sales":0,"rev":0},
+    {"d":"12/07","spend":36.43,"sales":0,"rev":0},
+    {"d":"13/07","spend":50.98,"sales":1,"rev":9},
+    {"d":"14/07","spend":37.64,"sales":0,"rev":0},
+    {"d":"15/07","spend":10.37,"sales":0,"rev":0},
+    {"d":"16/07","spend":16.58,"sales":0,"rev":0},
+    {"d":"17/07","spend":15.60,"sales":0,"rev":0},
+    {"d":"18/07","spend":6.19,"sales":0,"rev":0},
+    {"d":"19/07","spend":3.51,"sales":0,"rev":0}
+  ],
+  "salesByProduct": [
+    {"name":"Intestino Ligero ($9)","qty":1,"price":9},
+    {"name":"Sueño ($9)","qty":0,"price":9},
+    {"name":"Protocolo 30 ($27)","qty":0,"price":27},
+    {"name":"Cuerpo Mov. ($47)","qty":0,"price":47}
+  ],
+  "hotmartNetFactor": 0.85,
+  "funnel": { "impressions":4714, "clicks":215, "lpviews":94, "checkouts":16, "sales":1 },
+  "goals": { "daily":1, "weekly":7, "monthly":30, "ticketTarget":15 }
+}
