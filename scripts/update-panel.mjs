@@ -47,7 +47,8 @@ try {
   const dates = Object.keys(byDate).sort();
   const fmt = (iso) => { const [y,m,dd]=iso.split('-'); return `${dd}/${m}`; };
 
-  data.daily = dates.map(iso => ({ d: fmt(iso), spend: +byDate[iso].spend.toFixed(2), sales: byDate[iso].pur, rev: +(byDate[iso].pur*9).toFixed(2) }));
+  // vendas REAIS entram manualmente em salesByProduct (Hotmart). Pixel/boleto não conta como venda paga.
+  data.daily = dates.map(iso => ({ d: fmt(iso), spend: +byDate[iso].spend.toFixed(2), sales: 0, rev: 0 }));
   data.funnel = {
     impressions: dates.reduce((a,d)=>a+byDate[d].impressions,0),
     clicks: dates.reduce((a,d)=>a+byDate[d].clicks,0),

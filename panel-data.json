@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19 14:50 (BRT)",
+  "updated": "2026-07-19 15:05 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
@@ -26,8 +26,8 @@
     {
       "d": "13/07",
       "spend": 9.99,
-      "sales": 1,
-      "rev": 9
+      "sales": 0,
+      "rev": 0
     },
     {
       "d": "14/07",
@@ -63,7 +63,7 @@
   "salesByProduct": [
     {
       "name": "Intestino Ligero ($9)",
-      "qty": 1,
+      "qty": 0,
       "price": 9
     },
     {
@@ -88,7 +88,7 @@
     "clicks": 215,
     "lpviews": 94,
     "checkouts": 16,
-    "sales": 1
+    "sales": 0
   },
   "goals": {
     "daily": 1,
