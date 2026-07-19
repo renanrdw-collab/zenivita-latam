@@ -157,7 +157,7 @@ new Chart(document.getElementById('chProd'),{type:'bar',data:{labels:DATA.salesB
  {label:'Vendas',data:DATA.salesByProduct.map(x=>x.qty),backgroundColor:['#EF9C82','#C9A25A','#5fbf8f','#7fb3d5']}
 ]},options:{plugins:{legend:{display:false}},scales:{y:{grid:gGrid,beginAtZero:true,ticks:{stepSize:1}},x:{grid:{display:false}}}}});
 
-document.getElementById('foot').innerHTML="Fontes: gasto e funil via Windsor.ai (Meta Ads, conta 1806741513224678) · vendas <b>a confirmar na Hotmart</b> (hoje 1 registro via pixel). Receita líquida estimada com fator "+DATA.hotmartNetFactor+". Metas editáveis. Painel interno Zenivita — não indexado.";
+document.getElementById('foot').innerHTML="Fontes: gasto e funil via Windsor.ai (Meta Ads, conta 1806741513224678)"+(DATA.fx&&DATA.fx.from==='BRL'?" · gasto convertido de BRL→USD (câmbio "+DATA.fx.usdRate+")":"")+" · vendas <b>a confirmar na Hotmart</b> (hoje 1 registro via pixel). Receita líquida estimada com fator "+DATA.hotmartNetFactor+". Metas editáveis. Painel interno Zenivita — não indexado.";
 }
 </script>
 </body>

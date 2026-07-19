@@ -10,22 +10,34 @@ if (!KEY) { console.error('WINDSOR_API_KEY ausente — nada a fazer.'); process.
 
 const data = JSON.parse(readFileSync(FILE, 'utf8'));
 
-const fields = ['date','spend','impressions','clicks','actions_landing_page_view','actions_initiate_checkout','actions_purchase'].join(',');
+const fields = ['date','account_name','account_currency','spend','impressions','clicks','actions_landing_page_view','actions_initiate_checkout','actions_purchase'].join(',');
 const url = `https://connectors.windsor.ai/facebook?api_key=${KEY}&date_preset=last_14d&fields=${fields}`;
+
+// cotação BRL->USD ao vivo (fallback 0.185)
+async function brlToUsd() {
+  try { const r = await fetch('https://open.er-api.com/v6/latest/BRL'); const j = await r.json(); const v = j?.rates?.USD; if (v) return v; } catch(_){}
+  return 0.185;
+}
 
 try {
   const res = await fetch(url);
   if (!res.ok) throw new Error('HTTP ' + res.status);
   const json = await res.json();
-  const rows = (json.data || json.result || []).filter(r => !r.account_id || String(r.account_id) === ACCOUNT);
+  const rows = (json.data || json.result || []).filter(r => String(r.account_name||'').includes(ACCOUNT) || String(r.account_id||'') === ACCOUNT);
   if (!rows.length) throw new Error('sem linhas');
 
-  const num = (v) => Number(v || 0);
+  // moeda da conta: se BRL, converte gasto para USD
+  const cur = String(rows[0].account_currency || (String(rows[0].account_name||'').includes('BRL') ? 'BRL' : 'USD')).toUpperCase();
+  const rate = cur === 'BRL' ? await brlToUsd() : 1;
+  data.fx = { from: cur, usdRate: +rate.toFixed(4) };
+
+  const num = (v) => Number(v || 0) * (cur === 'BRL' ? 1 : 1); // spend convertido abaixo
+  const conv = (v) => Number(v || 0) * rate;
   const byDate = {};
   for (const r of rows) {
     const d = r.date;
     if (!byDate[d]) byDate[d] = { spend:0, impressions:0, clicks:0, lp:0, ic:0, pur:0 };
-    byDate[d].spend += num(r.spend);
+    byDate[d].spend += conv(r.spend);
     byDate[d].impressions += num(r.impressions);
     byDate[d].clicks += num(r.clicks);
     byDate[d].lp += num(r.actions_landing_page_view);
