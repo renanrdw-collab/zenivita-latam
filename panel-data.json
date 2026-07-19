@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19 15:05 (BRT)",
+  "updated": "2026-07-19 19:45 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
@@ -93,7 +93,7 @@
     "clicks": 215,
     "lpviews": 94,
     "checkouts": 16,
-    "sales": 0
+    "sales": 1
   },
   "goals": {
     "daily": 1,
