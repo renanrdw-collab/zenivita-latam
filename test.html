@@ -167,7 +167,9 @@ document.getElementById('leadform').addEventListener('submit', function(e){
   if(BREVO_ENDPOINT){
     var fd=new FormData();
     fd.append('NOME',nombre); fd.append('EMAIL',email); fd.append('email_address_check',''); fd.append('locale','es');
+    fd.append('RESULTADO',R.tag); fd.append('RESULTADO_COD',r);
     fetch(BREVO_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+    try{fbq('track','Lead');}catch(_){ }
   }
   var el=document.getElementById('result');
   el.innerHTML='<span class="result-tag">'+R.tag+'</span>'
@@ -181,6 +183,11 @@ document.getElementById('leadform').addEventListener('submit', function(e){
 });
 
 render();
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1298126082381332');fbq('track','PageView');
 </script>
 </body>
 </html>
