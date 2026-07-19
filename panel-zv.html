@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="refresh" content="600">
+<title>Zenivita · Painel Financeiro</title>
+<script src="vendor/chart.umd.js"></script>
+<style>
+  :root{--bg:#0e241d;--panel:#163a2c;--panel2:#1d4a38;--line:#26543f;--cream:#F2EDE0;--gold:#C9A25A;--coral:#EF9C82;--pos:#5fbf8f;--neg:#e8836f;--muted:#94ac9f;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--cream);padding:22px 26px 40px;}
+  .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;}
+  .brand{font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:bold;}
+  h1{font-size:24px;font-weight:600;margin-top:2px;}
+  .upd{font-size:12.5px;color:var(--muted);text-align:right;}
+  .upd b{color:var(--cream);}
+  .phase{display:inline-block;background:rgba(201,162,90,.18);border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-top:6px;}
+  .grid{display:grid;gap:14px;}
+  .kpis{grid-template-columns:repeat(4,1fr);margin-bottom:16px;}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;}
+  .kpi .lb{font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);}
+  .kpi .v{font-size:27px;font-weight:700;margin-top:6px;}
+  .kpi .s{font-size:12px;color:var(--muted);margin-top:2px;}
+  .kpi .v.pos{color:var(--pos);} .kpi .v.neg{color:var(--neg);} .kpi .v.gold{color:var(--gold);}
+  .sec-t{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:22px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px;}
+  .metas{grid-template-columns:repeat(3,1fr);}
+  .meta{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .meta .h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+  .meta .h .t{font-size:14px;font-weight:600;}
+  .meta .h .p{font-size:13px;color:var(--muted);}
+  .bar{height:12px;background:#0e2b20;border-radius:999px;overflow:hidden;}
+  .bar b{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--coral));}
+  .meta .n{margin-top:10px;font-size:13px;color:var(--muted);}
+  .meta .n b{color:var(--cream);}
+  .charts{grid-template-columns:2fr 1fr;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h3{font-size:14px;font-weight:600;margin-bottom:14px;color:var(--cream);}
+  .charts2{grid-template-columns:1fr 1fr;margin-top:14px;}
+  .funnel .row{display:flex;align-items:center;gap:12px;margin-bottom:9px;}
+  .funnel .row .fl{width:118px;font-size:12.5px;color:var(--muted);}
+  .funnel .row .fb{flex:1;height:26px;background:#0e2b20;border-radius:7px;overflow:hidden;position:relative;}
+  .funnel .row .fb b{display:block;height:100%;background:linear-gradient(90deg,var(--panel2),var(--gold));border-radius:7px;}
+  .funnel .row .fv{position:absolute;left:10px;top:0;line-height:26px;font-size:12.5px;font-weight:600;color:#fff;}
+  .funnel .row .fp{width:52px;text-align:right;font-size:12px;color:var(--muted);}
+  .alerts{margin-top:14px;}
+  .alert{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:9px;font-size:13.5px;}
+  .alert.warn{border-left-color:var(--neg);} .alert.good{border-left-color:var(--pos);}
+  .alert .ic{font-size:17px;}
+  .foot{margin-top:26px;font-size:11.5px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:14px;}
+  @media(max-width:1000px){.kpis{grid-template-columns:repeat(2,1fr);}.metas{grid-template-columns:1fr;}.charts,.charts2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div>
+    <div class="brand">🌿 Zenivita</div>
+    <h1>Painel Financeiro</h1>
+    <span class="phase" id="phase">Fase: Validação — rumo às 10 primeiras vendas</span>
+  </div>
+  <div class="upd">Atualizado: <b id="ts">—</b><br>Atualiza sozinho a cada 10 min · moeda USD</div>
+</div>
+
+<div class="grid kpis" id="kpis"></div>
+
+<div class="sec-t">Metas · progresso</div>
+<div class="grid metas" id="metas"></div>
+
+<div class="sec-t">Evolução & projeção</div>
+<div class="grid charts">
+  <div class="card"><h3>Receita vs Gasto (diário)</h3><canvas id="chLine" height="150"></canvas></div>
+  <div class="card"><h3>Projeção do mês (vendas acumuladas)</h3><canvas id="chProj" height="150"></canvas></div>
+</div>
+<div class="grid charts2">
+  <div class="card"><h3>Vendas por produto</h3><canvas id="chProd" height="150"></canvas></div>
+  <div class="card funnel"><h3>Funil (mês)</h3><div id="funnel"></div></div>
+</div>
+
+<div class="sec-t">Alertas & eventos</div>
+<div class="alerts" id="alerts"></div>
+
+<div class="foot" id="foot"></div>
+
+<script>
+/* ====== DADOS (o autopilot reescreve este bloco) ====== */
+const DATA = {
+  updated: "2026-07-19 18:10 (BRT)",
+  currency: "US$",
+  month: { label: "Julho/2026", daysElapsed: 19, daysTotal: 31 },
+  // série diária de tráfego (real, via Windsor)
+  daily: [
+    {d:"11/07", spend:6.74,  sales:0, rev:0},
+    {d:"12/07", spend:36.43, sales:0, rev:0},
+    {d:"13/07", spend:50.98, sales:1, rev:9},
+    {d:"14/07", spend:37.64, sales:0, rev:0},
+    {d:"15/07", spend:10.37, sales:0, rev:0},
+    {d:"16/07", spend:16.58, sales:0, rev:0},
+    {d:"17/07", spend:15.60, sales:0, rev:0},
+    {d:"18/07", spend:6.19,  sales:0, rev:0},
+    {d:"19/07", spend:3.51,  sales:0, rev:0}
+  ],
+  // vendas por produto (CONFIRMAR na Hotmart — hoje 1 registro via pixel)
+  salesByProduct: [
+    {name:"Intestino Ligero ($9)", qty:1, price:9},
+    {name:"Sueño ($9)", qty:0, price:9},
+    {name:"Protocolo 30 ($27)", qty:0, price:27},
+    {name:"Cuerpo Mov. ($47)", qty:0, price:47}
+  ],
+  hotmartNetFactor: 0.85,  // ~receita líquida após taxas
+  funnel: { impressions:4714, clicks:215, lpviews:94, checkouts:16, sales:1 },
+  goals: { daily:1, weekly:7, monthly:30, ticketTarget:15 } // metas de VENDAS (editáveis)
+};
+/* ====== FIM DADOS ====== */
+
+const F=(n)=>DATA.currency+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const N=(n)=>n.toLocaleString('pt-BR');
+const spendMonth=DATA.daily.reduce((a,x)=>a+x.spend,0);
+const salesMonth=DATA.salesByProduct.reduce((a,x)=>a+x.qty,0);
+const revBruta=DATA.salesByProduct.reduce((a,x)=>a+x.qty*x.price,0);
+const revLiq=revBruta*DATA.hotmartNetFactor;
+const lucro=revLiq-spendMonth;
+const cpa=salesMonth?spendMonth/salesMonth:0;
+const roas=spendMonth?revBruta/spendMonth:0;
+const ticket=salesMonth?revBruta/salesMonth:0;
+const margem=revBruta?(lucro/revBruta*100):0;
+const projSales=DATA.month.daysElapsed?(salesMonth/DATA.month.daysElapsed*DATA.month.daysTotal):0;
+
+document.getElementById('ts').textContent=DATA.updated;
+
+/* KPIs */
+const kpis=[
+ {lb:"Receita bruta (mês)",v:F(revBruta),s:"líquida "+F(revLiq),c:"gold"},
+ {lb:"Gasto tráfego (mês)",v:F(spendMonth),s:N(salesMonth)+" venda(s)"},
+ {lb:"Lucro líquido",v:F(lucro),s:"margem "+margem.toFixed(0)+"%",c:lucro>=0?"pos":"neg"},
+ {lb:"Vendas (mês)",v:N(salesMonth),s:"meta "+DATA.goals.monthly,c:"gold"},
+ {lb:"CPA (custo/venda)",v:salesMonth?F(cpa):"—",s:"ideal ≤ ticket",c:cpa>ticket&&salesMonth?"neg":""},
+ {lb:"ROAS",v:roas.toFixed(2)+"x",s:">1 empata",c:roas>=1?"pos":"neg"},
+ {lb:"Ticket médio",v:salesMonth?F(ticket):"—",s:"alvo "+DATA.currency+DATA.goals.ticketTarget},
+ {lb:"Proj. vendas mês",v:projSales.toFixed(1),s:"no ritmo atual",c:projSales>=DATA.goals.monthly?"pos":"neg"}
+];
+document.getElementById('kpis').innerHTML=kpis.map(k=>`<div class="kpi"><div class="lb">${k.lb}</div><div class="v ${k.c||''}">${k.v}</div><div class="s">${k.s}</div></div>`).join('');
+
+/* METAS */
+const wkSales=DATA.daily.slice(-7).reduce((a,x)=>a+x.sales,0);
+const dySales=DATA.daily[DATA.daily.length-1].sales;
+function meta(t,cur,goal,unit){const p=Math.min(100,goal?cur/goal*100:0);return `<div class="meta"><div class="h"><span class="t">${t}</span><span class="p">${cur}/${goal} ${unit}</span></div><div class="bar"><b style="width:${p}%"></b></div><div class="n">${p>=100?'✅ meta batida!':'faltam <b>'+(goal-cur)+'</b> '+unit}</div></div>`;}
+document.getElementById('metas').innerHTML=
+  meta("Hoje",dySales,DATA.goals.daily,"vendas")+
+  meta("Semana",wkSales,DATA.goals.weekly,"vendas")+
+  meta("Mês ("+DATA.month.label+")",salesMonth,DATA.goals.monthly,"vendas");
+
+/* FUNIL */
+const fn=DATA.funnel;const fsteps=[["Impressões",fn.impressions],["Cliques",fn.clicks],["Visitas LP",fn.lpviews],["Checkouts",fn.checkouts],["Vendas",fn.sales]];
+const fmax=fn.impressions;
+document.getElementById('funnel').innerHTML=fsteps.map((s,i)=>{const pct=(s[1]/fmax*100);const conv=i>0?(s[1]/fsteps[i-1][1]*100):100;return `<div class="row"><div class="fl">${s[0]}</div><div class="fb"><b style="width:${Math.max(pct,6)}%"></b><span class="fv">${N(s[1])}</span></div><div class="fp">${i>0?conv.toFixed(1)+'%':''}</div></div>`;}).join('');
+
+/* ALERTAS */
+const alerts=[];
+if(salesMonth<=1)alerts.push(["warn","🚨","Entrega do tráfego travada e quase sem vendas — prioridade nº1: destravar a otimização do Meta (evento raro)."]);
+if(cpa>ticket&&salesMonth)alerts.push(["warn","💸","CPA ("+F(cpa)+") acima do ticket médio ("+F(ticket)+") — cada venda está saindo no prejuízo. O lucro virá do upsell/LTV."]);
+if(fn.checkouts>0&&fn.sales/fn.checkouts<0.3)alerts.push(["warn","🛒","Vazamento no checkout: "+fn.checkouts+" iniciaram e só "+fn.sales+" comprou. Verificar meios de pagamento MX (Hotmart)."]);
+if(projSales<DATA.goals.monthly)alerts.push(["","📉","Projeção do mês ("+projSales.toFixed(1)+") abaixo da meta ("+DATA.goals.monthly+"). Precisa reabrir volume + converter."]);
+if(!alerts.length)alerts.push(["good","✅","Tudo dentro das metas. Seguir escalando o que funciona."]);
+document.getElementById('alerts').innerHTML=alerts.map(a=>`<div class="alert ${a[0]}"><span class="ic">${a[1]}</span><span>${a[2]}</span></div>`).join('');
+
+/* CHARTS */
+Chart.defaults.color='#94ac9f';Chart.defaults.font.family="'Segoe UI',sans-serif";
+const gGrid={color:'#26543f'};
+new Chart(document.getElementById('chLine'),{type:'line',data:{labels:DATA.daily.map(x=>x.d),datasets:[
+ {label:'Gasto',data:DATA.daily.map(x=>x.spend),borderColor:'#e8836f',backgroundColor:'rgba(232,131,111,.12)',fill:true,tension:.3},
+ {label:'Receita',data:DATA.daily.map(x=>x.rev),borderColor:'#5fbf8f',backgroundColor:'rgba(95,191,143,.12)',fill:true,tension:.3}
+]},options:{plugins:{legend:{labels:{boxWidth:12}}},scales:{y:{grid:gGrid,beginAtZero:true},x:{grid:{display:false}}}}});
+
+let acc=0;const projLine=DATA.daily.map(x=>{acc+=x.sales;return acc;});
+const goalLine=DATA.daily.map((_,i)=>DATA.goals.monthly/DATA.month.daysTotal*(i+1));
+new Chart(document.getElementById('chProj'),{type:'line',data:{labels:DATA.daily.map(x=>x.d),datasets:[
+ {label:'Real',data:projLine,borderColor:'#C9A25A',backgroundColor:'rgba(201,162,90,.12)',fill:true,tension:.2},
+ {label:'Meta (ritmo)',data:goalLine,borderColor:'#94ac9f',borderDash:[5,4],pointRadius:0}
+]},options:{plugins:{legend:{labels:{boxWidth:12}}},scales:{y:{grid:gGrid,beginAtZero:true},x:{grid:{display:false}}}}});
+
+new Chart(document.getElementById('chProd'),{type:'bar',data:{labels:DATA.salesByProduct.map(x=>x.name),datasets:[
+ {label:'Vendas',data:DATA.salesByProduct.map(x=>x.qty),backgroundColor:['#EF9C82','#C9A25A','#5fbf8f','#7fb3d5']}
+]},options:{plugins:{legend:{display:false}},scales:{y:{grid:gGrid,beginAtZero:true,ticks:{stepSize:1}},x:{grid:{display:false}}}}});
+
+document.getElementById('foot').innerHTML="Fontes: gasto e funil via Windsor.ai (Meta Ads, conta 1806741513224678) · vendas <b>a confirmar na Hotmart</b> (hoje 1 registro via pixel). Receita líquida estimada com fator "+DATA.hotmartNetFactor+". Metas editáveis. Painel interno Zenivita — não indexado.";
+</script>
+</body>
+</html>
