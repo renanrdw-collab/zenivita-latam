@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuerpo en Movimiento — 90 Días | Zenivita | Desinflama, activa tu circulación y recupera tu energía en casa</title>
+<meta name="description" content="El programa premium de 90 días para moverte en casa, desinflamar tu cuerpo, activar tu circulación y recuperar tu energía — sin gimnasio, pensado para mujeres. Guía + Recetario + Planner. US$47.">
+<style>
+  :root{--coral:#EF9C82;--coral-d:#E07A5A;--teal:#1D4241;--teal2:#2A5A58;--cream:#FBF6F1;--ink:#33302e;--gold:#C9A25A;--green:#4c8a6e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Helvetica Neue',Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;}
+  .serif{font-family:Georgia,'Times New Roman',serif;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px;}
+  img{max-width:100%;}
+
+  /* HERO */
+  .hero{background:linear-gradient(165deg,var(--teal) 0%,var(--teal2) 100%);color:#fff;text-align:center;padding:40px 20px 48px;border-radius:0 0 32px 32px;}
+  .brand{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--coral);font-weight:bold;}
+  .hero .badge-premium{display:inline-block;margin-top:14px;background:rgba(201,162,90,.22);border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;padding:5px 16px;border-radius:999px;}
+  .hero h1{font-family:Georgia,serif;font-size:clamp(28px,6vw,42px);line-height:1.15;margin:14px 0 12px;}
+  .hero h1 span{color:var(--coral);}
+  .hero .sub{font-size:clamp(16px,3.5vw,20px);opacity:.94;max-width:560px;margin:0 auto 8px;}
+
+  .hero-cover{position:relative;width:230px;margin:28px auto 6px;}
+  .hero-cover img{width:100%;border-radius:10px;box-shadow:0 22px 44px rgba(0,0,0,.42);transform:rotate(-3deg);}
+  .hero-cover .seal{position:absolute;bottom:-16px;right:-14px;background:var(--coral);color:#fff;border-radius:50%;width:88px;height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;font-weight:bold;transform:rotate(7deg);box-shadow:0 8px 18px rgba(0,0,0,.3);text-align:center;line-height:1.15;}
+  .hero-cover .seal b{font-size:22px;}
+
+  .btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:bold;font-size:19px;padding:17px 40px;border-radius:999px;box-shadow:0 10px 24px rgba(239,156,130,.5);transition:transform .15s;letter-spacing:.3px;}
+  .btn:hover{transform:translateY(-3px);}
+  .btn.big{font-size:21px;padding:20px 48px;}
+  .price-line{margin-top:14px;font-size:15px;opacity:.9;}
+
+  section{padding:44px 0;}
+  h2{font-family:Georgia,serif;color:var(--teal);font-size:clamp(24px,5vw,32px);text-align:center;line-height:1.2;margin-bottom:10px;}
+  .lead{text-align:center;color:var(--teal2);font-size:18px;max-width:580px;margin:0 auto 22px;}
+
+  /* DOR */
+  .pain{background:#fff;}
+  .pain ul{list-style:none;max-width:580px;margin:0 auto;}
+  .pain li{background:var(--cream);border-radius:12px;padding:15px 18px;margin-bottom:11px;font-size:17px;display:flex;gap:12px;align-items:flex-start;}
+  .pain li::before{content:"—";color:var(--coral-d);font-weight:bold;}
+  .pain .close{text-align:center;font-size:19px;color:var(--teal);max-width:580px;margin:22px auto 0;font-family:Georgia,serif;}
+
+  /* CIENCIA / por qué funciona */
+  .why{background:linear-gradient(165deg,#FDEEE7 0%,var(--cream) 100%);}
+  .why .grid{display:grid;gap:14px;max-width:600px;margin:0 auto;grid-template-columns:1fr;}
+  .why .c{background:#fff;border-radius:14px;padding:20px 22px;box-shadow:0 5px 18px rgba(29,66,65,.07);}
+  .why .c h4{color:var(--teal);font-size:18px;margin-bottom:4px;}
+  .why .c p{font-size:15px;color:#5c5a57;margin:0;}
+  .why .c .ico{font-size:24px;margin-bottom:6px;display:block;}
+
+  /* CONTENIDO */
+  .inside .grid{display:grid;gap:14px;max-width:620px;margin:0 auto;}
+  .inside .item{background:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 5px 18px rgba(29,66,65,.07);border-left:4px solid var(--gold);}
+  .inside .item h4{color:var(--teal);font-size:18px;margin-bottom:3px;}
+  .inside .item p{font-size:15px;color:#5c5a57;margin:0;}
+  .inside .bonus{border-left-color:var(--coral);}
+  .inside .bonus h4::before{content:"🎁 BONUS · ";color:var(--coral-d);font-size:13px;letter-spacing:.5px;}
+  .valuebar{max-width:620px;margin:22px auto 0;background:var(--teal);color:#fff;border-radius:16px;padding:22px 24px;text-align:center;}
+  .valuebar .vrow{display:flex;justify-content:space-between;font-size:15px;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.2);}
+  .valuebar .vrow:last-of-type{border-bottom:none;}
+  .valuebar .vrow b{color:var(--coral);}
+  .valuebar .vtot{font-family:Georgia,serif;font-size:20px;margin-top:12px;}
+  .valuebar .vtot s{opacity:.6;font-size:16px;}
+
+  /* PARA QUIÉN */
+  .forwho{background:#fff;}
+  .forwho .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px;margin:0 auto;}
+  .forwho .box{border-radius:14px;padding:20px 22px;}
+  .forwho .si{background:#eef6f1;border:1px solid #cfe6d9;}
+  .forwho .no{background:#fbeee9;border:1px solid #f2d4c8;}
+  .forwho .box h4{font-size:16px;margin-bottom:10px;}
+  .forwho .si h4{color:var(--green);}
+  .forwho .no h4{color:var(--coral-d);}
+  .forwho .box ul{list-style:none;}
+  .forwho .box li{font-size:14px;margin-bottom:8px;padding-left:20px;position:relative;color:#55534f;}
+  .forwho .si li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:bold;}
+  .forwho .no li::before{content:"✕";position:absolute;left:0;color:var(--coral-d);font-weight:bold;}
+  @media(max-width:560px){.forwho .two{grid-template-columns:1fr;}}
+
+  /* TESTIMONIOS */
+  .testi{background:linear-gradient(165deg,#FDEEE7 0%,var(--cream) 100%);}
+  .tcard{background:#fff;border-radius:16px;padding:22px 24px;margin:0 auto 16px;max-width:560px;box-shadow:0 6px 20px rgba(29,66,65,.08);}
+  .tcard p{font-size:16px;font-style:italic;color:#4a4744;margin-bottom:12px;}
+
+  /* GARANTÍA */
+  .guar{background:var(--teal);color:#fff;text-align:center;}
+  .guar .seal{width:120px;height:120px;border-radius:50%;border:4px dashed var(--coral);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 18px;font-weight:bold;}
+  .guar .seal b{font-size:34px;color:var(--coral);}
+  .guar h2{color:#fff;}
+  .guar p{max-width:520px;margin:0 auto;opacity:.93;font-size:17px;}
+
+  /* OFERTA */
+  .offer{text-align:center;}
+  .offerbox{background:#fff;border:2px solid var(--coral);border-radius:22px;max-width:480px;margin:0 auto;padding:34px 28px;box-shadow:0 14px 40px rgba(29,66,65,.12);}
+  .offerbox .tag{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:bold;letter-spacing:1px;padding:6px 16px;border-radius:999px;text-transform:uppercase;}
+  .offerbox h3{font-family:Georgia,serif;color:var(--teal);font-size:24px;margin:14px 0 6px;}
+  .offerbox .incl{text-align:left;max-width:320px;margin:6px auto 16px;list-style:none;}
+  .offerbox .incl li{font-size:14px;color:#55534f;padding:5px 0 5px 24px;position:relative;}
+  .offerbox .incl li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:bold;}
+  .offerbox .big-price{font-size:52px;color:var(--coral-d);font-weight:bold;font-family:Georgia,serif;}
+  .offerbox .big-price small{font-size:20px;}
+  .offerbox .big-price .antes{display:block;font-size:18px;color:#9aa59b;text-decoration:line-through;font-weight:normal;}
+  .offerbox .u{font-size:14px;color:#8a857f;margin-bottom:18px;}
+  .trust{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:20px;font-size:13px;color:#6b6660;}
+  .trust span{display:flex;align-items:center;gap:5px;}
+
+  /* FAQ */
+  .faq details{background:#fff;border-radius:12px;margin-bottom:10px;padding:0 20px;max-width:600px;margin-left:auto;margin-right:auto;box-shadow:0 4px 14px rgba(29,66,65,.05);}
+  .faq summary{cursor:pointer;padding:16px 0;font-weight:bold;color:var(--teal);font-size:16px;list-style:none;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";float:right;color:var(--coral);font-size:22px;line-height:1;}
+  .faq details[open] summary::after{content:"–";}
+  .faq p{padding:0 0 16px;font-size:15px;color:#5c5a57;}
+
+  footer{background:var(--teal);color:#cdd8d6;text-align:center;padding:34px 20px;font-size:13px;line-height:1.7;}
+  footer .disc{font-size:11px;opacity:.7;max-width:600px;margin:14px auto 0;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="brand">🌿 Zenivita</div>
+    <div class="badge-premium">Programa Premium · 90 Días</div>
+    <h1>Tu cuerpo pesado y sin energía<br><span>puede volver a moverse con ligereza.</span></h1>
+    <p class="sub">El programa de 90 días para moverte en casa, desinflamar tu cuerpo, activar tu circulación y recuperar tu energía — sin gimnasio, sin dietas, pensado para mujeres reales.</p>
+    <div class="hero-cover">
+      <img src="capa-cuerpo-movimiento.png" alt="Cuerpo en Movimiento — 90 Días · Zenivita">
+      <div class="seal"><b>US$47</b>pago único</div>
+    </div>
+    <div style="margin-top:26px;">
+      <a href="#comprar" class="btn big">Quiero moverme de nuevo →</a>
+      <div class="price-line">Acceso inmediato · Garantía de 7 días</div>
+    </div>
+  </div>
+</div>
+
+<!-- DOR -->
+<section class="pain">
+  <div class="wrap">
+    <h2>Si tu cuerpo te pide un cambio, escúchalo</h2>
+    <p class="lead">No es pereza ni falta de fuerza de voluntad. Es un cuerpo inflamado, con la circulación lenta y la energía apagada — y eso tiene solución.</p>
+    <ul>
+      <li>Te despiertas cansada, como si no hubieras descansado</li>
+      <li>Te sientes hinchada, pesada y con las piernas cargadas al final del día</li>
+      <li>Te falta energía para lo que antes hacías sin pensar</li>
+      <li>La idea del gimnasio te agota antes de empezar — y no es lo tuyo</li>
+      <li>Sabes que necesitas moverte, pero no sabes por dónde ni cómo empezar</li>
+    </ul>
+    <p class="close">Imagina despertar con el cuerpo liviano, las piernas activas y energía que te dura todo el día. En 90 días, moviéndote poco a poco desde tu casa, eso es completamente posible. 🌿</p>
+  </div>
+</section>
+
+<!-- POR QUÉ FUNCIONA (ciencia suave) -->
+<section class="why">
+  <div class="wrap">
+    <h2>Por qué el movimiento suave cambia todo</h2>
+    <p class="lead">Este no es un plan de "sudar por sudar". Cada movimiento tiene un porqué — y tu cuerpo lo siente.</p>
+    <div class="grid">
+      <div class="c"><span class="ico">🔥</span><h4>Baja la inflamación</h4><p>El movimiento regular libera sustancias antiinflamatorias naturales de tus músculos. Menos hinchazón, cuerpo más liviano.</p></div>
+      <div class="c"><span class="ico">💧</span><h4>Activa tu circulación</h4><p>Tus piernas son tu "segundo corazón". Al moverlas, bombeas la sangre de vuelta y alivias la pesadez y la retención.</p></div>
+      <div class="c"><span class="ico">⚡</span><h4>Renueva tu energía</h4><p>El movimiento despierta tus mitocondrias — las fábricas de energía de tus células. Más movimiento hoy, más energía mañana.</p></div>
+      <div class="c"><span class="ico">🌙</span><h4>Calma tus hormonas</h4><p>Ayuda a regular el cortisol (la hormona del estrés), mejora tu sueño y tu ánimo. Todo está conectado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO / TANGIBILIDAD -->
+<section class="inside">
+  <div class="wrap">
+    <h2>Esto es lo que recibes hoy</h2>
+    <p class="lead">Un programa premium completo, guiado paso a paso — con todo lo que necesitas para moverte, comer y descansar mejor durante 90 días.</p>
+    <div class="grid">
+      <div class="item"><h4>📗 La Guía Principal — 90 Días</h4><p>Tu programa completo en 3 fases (Despertar · Fluir · Vitalidad), con la ciencia explicada simple, el método, el mapa de los 90 días y una biblioteca de movimientos con ejecución paso a paso y adaptaciones fáciles/avanzadas.</p></div>
+      <div class="item"><h4>🏃‍♀️ Biblioteca de Movimientos + Planes de Clase</h4><p>Cada ejercicio con su ejecución detallada, para qué sirve y cómo adaptarlo a tu nivel. Más planes de clase semanales listos para seguir en casa, sin equipo.</p></div>
+      <div class="item bonus"><h4>Recetario Antiinflamatorio</h4><p>Recetas simples y ricas para desinflamar, activar tu circulación y darte energía — con ingredientes de cualquier mercado. Tu cocina como aliada del movimiento.</p></div>
+      <div class="item bonus"><h4>Planner de 90 Días (imprimible)</h4><p>Para registrar tu movimiento, agua, sueño y cómo te sientes — y ver tu transformación con tus propios ojos, día a día.</p></div>
+    </div>
+
+    <div class="valuebar">
+      <div class="vrow"><span>📗 Guía Principal 90 Días</span><b>US$47</b></div>
+      <div class="vrow"><span>🎁 Recetario Antiinflamatorio</span><b>incluido</b></div>
+      <div class="vrow"><span>🎁 Planner 90 Días imprimible</span><b>incluido</b></div>
+      <div class="vtot">Todo por <s>US$77</s> <b style="color:var(--coral);">US$47</b> · pago único</div>
+    </div>
+
+    <div style="text-align:center;margin-top:28px;">
+      <a href="#comprar" class="btn">Quiero mi programa →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="forwho">
+  <div class="wrap">
+    <h2>¿Es para ti?</h2>
+    <div class="two">
+      <div class="box si">
+        <h4>Sí, si tú…</h4>
+        <ul>
+          <li>Quieres moverte en casa, a tu ritmo, sin gimnasio</li>
+          <li>Sientes tu cuerpo pesado, hinchado o sin energía</li>
+          <li>Buscas algo sostenible, no un reto extremo de 7 días</li>
+          <li>Quieres entender tu cuerpo, no solo "hacer ejercicio"</li>
+          <li>Empiezas desde cero o vuelves después de mucho tiempo</li>
+        </ul>
+      </div>
+      <div class="box no">
+        <h4>Quizás no, si…</h4>
+        <ul>
+          <li>Buscas una promesa de "perder X kilos en X días"</li>
+          <li>Quieres rutinas de alto impacto tipo gimnasio pesado</li>
+          <li>Esperas resultados sin dedicar unos minutos al día</li>
+          <li>No estás dispuesta a ser constante y amable contigo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIO honesto -->
+<section class="testi">
+  <div class="wrap">
+    <h2>Sé de las primeras en moverte con nosotras</h2>
+    <p class="lead">Zenivita es una marca joven y honesta. Todavía no llenamos esta página de testimonios — preferimos que el primero sea el tuyo.</p>
+    <div class="tcard">
+      <p>"Empecé sin saber si podría ser constante. Lo que me enamoró fue que no me exigía sudar hasta el agotamiento — me enseñó a mover mi cuerpo con cariño. Hoy me siento más liviana y con energía de verdad."</p>
+      <p style="font-style:normal;color:var(--teal);font-weight:bold;margin:0;">— Tu historia puede empezar hoy 🌿</p>
+    </div>
+    <div style="text-align:center;margin-top:10px;">
+      <a href="#comprar" class="btn">Empezar hoy →</a>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTÍA -->
+<section class="guar">
+  <div class="wrap">
+    <div class="seal"><b>7</b>DÍAS</div>
+    <h2>Riesgo cero para ti</h2>
+    <p>Explora el programa completo durante 7 días. Si no sientes que es para ti, escríbenos y te devolvemos el 100% de tu dinero — sin preguntas, sin complicaciones. Toda la confianza está de tu lado.</p>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="offer" id="comprar">
+  <div class="wrap">
+    <h2>Empieza hoy tus 90 días</h2>
+    <div class="offerbox">
+      <span class="tag">Programa Premium · Acceso inmediato</span>
+      <h3>Cuerpo en Movimiento — 90 Días</h3>
+      <ul class="incl">
+        <li>Guía Principal de 90 días (3 fases)</li>
+        <li>Biblioteca de movimientos + planes de clase</li>
+        <li>🎁 Recetario Antiinflamatorio</li>
+        <li>🎁 Planner de 90 días imprimible</li>
+      </ul>
+      <div class="big-price"><span class="antes">US$77</span><small>US$</small>47</div>
+      <div class="u">Pago único · Sin suscripción · Tuyo para siempre</div>
+      <a href="PENDIENTE-LINK-HOTMART" class="btn big">Sí, quiero mi programa →</a>
+      <div class="trust">
+        <span>🔒 Pago seguro vía Hotmart</span>
+        <span>⚡ Acceso inmediato</span>
+        <span>🛡️ Garantía 7 días</span>
+        <span>📱 100% digital</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Necesito gimnasio o algún equipo?</summary><p>No. Todo el programa está pensado para hacerse en casa o al aire libre, sin máquinas ni pesas. Solo tu cuerpo, un poco de espacio y ganas de empezar.</p></details>
+    <details><summary>¿Sirve si nunca hice ejercicio o estoy fuera de forma?</summary><p>Sí — de hecho está diseñado para eso. Empieza con movimientos suaves y cada ejercicio tiene su versión más fácil. Avanzas a tu ritmo, sin lastimarte ni frustrarte.</p></details>
+    <details><summary>¿Cuánto tiempo al día necesito?</summary><p>Poco. Las sesiones están pensadas para mujeres con vidas ocupadas — unos minutos al día que se integran a tu rutina sin complicarte.</p></details>
+    <details><summary>¿Cómo recibo el programa?</summary><p>Al completar tu compra recibes acceso inmediato por correo. Es 100% digital: lo lees en tu celular, tablet o computadora, e imprimes el planner si quieres.</p></details>
+    <details><summary>¿Es para mí si tengo alguna condición de salud?</summary><p>Este es un programa de bienestar y movimiento, no un tratamiento médico. Si tienes alguna condición, lesión o dudas, consulta a tu médico antes de empezar.</p></details>
+    <details><summary>¿Y si no me funciona?</summary><p>Tienes 7 días de garantía. Si sientes que no es para ti, te devolvemos el 100% de tu dinero. El riesgo es todo nuestro.</p></details>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section style="text-align:center;background:var(--cream);">
+  <div class="wrap">
+    <p class="serif" style="font-size:22px;color:var(--teal);max-width:540px;margin:0 auto 22px;">"Tu cuerpo no necesita castigo — necesita movimiento con cariño. Empieza hoy, un paso a la vez."</p>
+    <a href="#comprar" class="btn big">Quiero moverme de nuevo → US$47</a>
+  </div>
+</section>
+
+<footer>
+  <div class="brand" style="color:var(--coral);">🌿 Zenivita</div>
+  <div style="margin-top:8px;">Bienestar femenino natural · Programas 100% digitales en español</div>
+  <p class="disc">Este contenido es educativo y de bienestar. No sustituye la orientación, el diagnóstico ni el tratamiento de un profesional de la salud. Los resultados pueden variar de una persona a otra. Consulta a tu médico antes de iniciar cualquier programa de movimiento. Zenivita © 2026.</p>
+</footer>
+
+</body>
+</html>
