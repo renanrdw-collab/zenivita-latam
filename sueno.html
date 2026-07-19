@@ -210,5 +210,47 @@
   <p class="disc">Este contenido es educativo y de bienestar. No sustituye la orientación, el diagnóstico ni el tratamiento de un profesional de la salud. Los resultados pueden variar de una persona a otra. Consulta a tu médico antes de iniciar cualquier programa, especialmente si tomas medicación. Zenivita © 2026.</p>
 </footer>
 
+<!-- Zenivita: Meta Pixel + eventos + captura de lead -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1298126082381332');fbq('track','PageView');fbq('track','ViewContent');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="pay.hotmart.com"]');if(a){try{fbq('track','InitiateCheckout');}catch(_){}}},true);
+</script>
+<div id="zvLB" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(29,66,65,.62);align-items:center;justify-content:center;padding:20px;">
+  <div class="zvbox" style="background:#FBF6F1;max-width:420px;width:100%;border-radius:20px;padding:30px 26px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;font-family:'Helvetica Neue',Arial,sans-serif;">
+    <button id="zvX" aria-label="cerrar" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:26px;color:#9a8f86;cursor:pointer;line-height:1;">&times;</button>
+    <div style="font-size:34px;">&#127807;</div>
+    <h3 style="font-family:Georgia,serif;color:#1D4241;font-size:23px;margin:8px 0 6px;">Antes de irte&hellip;</h3>
+    <p style="color:#5c5a57;font-size:15px;margin-bottom:16px;">Ll&eacute;vate <b>gratis</b> la mini-gu&iacute;a <i>&laquo;3 d&iacute;as para desinflamar tu cuerpo&raquo;</i>. D&eacute;jame tu correo y Sof&iacute;a te la env&iacute;a ahora. &#128153;</p>
+    <form id="zvForm">
+      <input type="text" id="zvNom" placeholder="Tu nombre" required style="width:100%;padding:13px 15px;border:2px solid #e8ddd3;border-radius:12px;font-size:15px;margin-bottom:10px;font-family:inherit;">
+      <input type="email" id="zvMail" placeholder="Tu mejor correo" required style="width:100%;padding:13px 15px;border:2px solid #e8ddd3;border-radius:12px;font-size:15px;margin-bottom:12px;font-family:inherit;">
+      <button type="submit" style="width:100%;background:#EF9C82;color:#fff;border:none;border-radius:999px;padding:15px;font-size:16px;font-weight:bold;cursor:pointer;font-family:inherit;">Quiero mi mini-gu&iacute;a gratis &rarr;</button>
+    </form>
+    <p style="font-size:12px;color:#9a9a9a;margin-top:12px;">Sin spam &mdash; solo bienestar. Te puedes dar de baja cuando quieras.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var BREVO="https://1cd75ab9.sibforms.com/serve/MUIFAHbOPQzEuoGGEz6zUN9fWLL7C-1_sH6cecAbH_FvRhnn79YIuVo-BjSG8-ezU4_tFUJ9O_xclyVKOslCEJjI-PaweO6k_fBdVff-pmy5mGGpn9A8a3SRhM5vebcMmoH255z-mmTkSPkTN7SrG1bzt2g_SyxeE6mBZjlTzwvdheUgDBp30B7KoPUz3EbhqynFPQwybOiBgRoNqA==";
+  var LB=document.getElementById('zvLB'), shown=false;
+  function open(){ if(shown)return; try{if(localStorage.getItem('zv_cap'))return;}catch(_){ } shown=true; LB.style.display='flex'; }
+  function close(){ LB.style.display='none'; try{localStorage.setItem('zv_cap','1');}catch(_){ } }
+  document.getElementById('zvX').onclick=close;
+  LB.addEventListener('click',function(e){ if(e.target===LB) close(); });
+  document.addEventListener('mouseout',function(e){ if(e.clientY<=0) open(); });
+  setTimeout(open, 30000);
+  document.getElementById('zvForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('zvNom').value, m=document.getElementById('zvMail').value;
+    try{var fd=new FormData();fd.append('NOME',n);fd.append('EMAIL',m);fd.append('email_address_check','');fd.append('locale','es');fetch(BREVO,{method:'POST',body:fd,mode:'no-cors'});}catch(_){ }
+    try{fbq('track','Lead');}catch(_){ }
+    try{localStorage.setItem('zv_cap','1');}catch(_){ }
+    LB.querySelector('.zvbox').innerHTML='<div style="font-size:40px;">&#128153;</div><h3 style="font-family:Georgia,serif;color:#1D4241;font-size:23px;margin:10px 0;">&iexcl;Listo, '+(n||'')+'!</h3><p style="color:#5c5a57;font-size:15px;">Revisa tu correo en unos minutos (mira tambi&eacute;n spam). Tu mini-gu&iacute;a va en camino. &#127807;</p>';
+    setTimeout(close, 4500);
+  });
+})();
+</script>
+
 </body>
 </html>
