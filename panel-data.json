@@ -80,6 +80,11 @@
       "name": "Cuerpo Mov. ($47)",
       "qty": 0,
       "price": 47
+    },
+    {
+      "name": "Colección ($57)",
+      "qty": 0,
+      "price": 57
     }
   ],
   "hotmartNetFactor": 0.85,
