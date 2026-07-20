@@ -115,23 +115,23 @@ var RESULTADOS = {
   D:{tag:"Sistema Digestivo", titulo:"Tu intestino está pidiendo ayuda 🌿",
      diag:"Tus respuestas apuntan a un sistema digestivo sobrecargado: hinchazón, pesadez y esa sensación de que \"nada cae bien\". No es normal vivir así — y no es falta de fuerza de voluntad: es tu microbiota pidiendo un reinicio. La buena noticia: el intestino responde rápido cuando recibe lo que necesita.",
      acciones:["Empieza mañana con un vaso de agua tibia con limón en ayunas","Mastica cada bocado al menos 15 veces — la digestión empieza en la boca","Esta noche, cena ligero y deja 3 horas antes de acostarte"],
-     cta:"Protocolo Intestino Ligero — 10 días para deshinchar tu abdomen", link:"https://zenivita.online/intestino.html"},
+     cta:"Protocolo Intestino Ligero — 10 días para deshinchar tu abdomen", link:"https://zenivita.online/intestino.html", precio:"Solo US$9"},
   S:{tag:"Sueño", titulo:"Tu sueño está pidiendo ayuda 🌙",
      diag:"Tus respuestas muestran que tu descanso dejó de reparar: te cuesta dormir, te despiertas de madrugada o amaneces tan cansada como te acostaste. El sueño es la base de todo — hormonas, peso, ánimo y energía dependen de él. Recuperarlo no es cuestión de suerte: es cuestión de método.",
      acciones:["Hoy: saca el celular del dormitorio (usa un despertador simple)","Toma 10 minutos de luz natural apenas despiertes mañana","Cena al menos 3 horas antes de dormir, sin pantallas en la última hora"],
-     cta:"Guía Sueño Reparador — empieza esta misma noche", link:"https://zenivita.online/sueno.html"},
+     cta:"Guía Sueño Reparador — empieza esta misma noche", link:"https://zenivita.online/sueno.html", precio:"Solo US$9"},
   H:{tag:"Hormonas", titulo:"Tus hormonas están pidiendo equilibrio 🌸",
      diag:"Tus respuestas apuntan a un desequilibrio hormonal: emociones en montaña rusa, antojos, síntomas que van y vienen con tu ciclo. No estás \"exagerando\" — tu química interna está hablando. Y cuando aprendes a escucharla, todo cambia: ánimo, piel, sueño y energía.",
      acciones:["Anota hoy en qué día de tu ciclo estás — el conocimiento es el primer paso","Agrega una porción de grasas buenas hoy (aguacate, nueces, aceite de oliva)","Reduce el azúcar refinada esta semana y observa tu ánimo"],
-     cta:"Protocolo 30 Días Zenivita — Renovación Femenina Completa", link:"https://zenivita.online/oferta-30dias.html"},
+     cta:"Protocolo 30 Días Zenivita — Renovación Femenina Completa", link:"https://zenivita.online/oferta-30dias.html", precio:"US$27 · 30 días"},
   C:{tag:"Sistema Nervioso", titulo:"Tu sistema nervioso está pidiendo calma 🕊️",
      diag:"Tus respuestas muestran un sistema nervioso en modo alerta constante: mente que no se apaga, tensión, ansiedad. Vivir acelerada no es tu personalidad — es un estado del cuerpo. Y los estados se pueden regular, con práctica y con las herramientas correctas.",
      acciones:["Ahora mismo: respira 4-7-8 (inhala 4s, sostén 7s, exhala 8s) × 4 veces","Hoy, 10 minutos de caminata sin celular ni audífonos","Antes de dormir: escribe 3 cosas por las que agradeces hoy"],
-     cta:"Protocolo 30 Días Zenivita — incluye el pilar de calma y equilibrio", link:"https://zenivita.online/oferta-30dias.html"},
+     cta:"Protocolo 30 Días Zenivita — incluye el pilar de calma y equilibrio", link:"https://zenivita.online/oferta-30dias.html", precio:"US$27 · 30 días"},
   E:{tag:"Energía", titulo:"Tu energía está pidiendo un reinicio ⚡",
      diag:"Tus respuestas apuntan a una fatiga que va más allá del cansancio normal: duermes y no recargas, el día pesa desde temprano. La energía no se \"fuerza\" con café — se construye con nutrición, descanso y ritmo. Tu vitalidad de antes no se perdió: está esperando las condiciones para volver.",
      acciones:["Hoy: toma 2 litros de agua (la fatiga y la deshidratación van juntas)","Agrega proteína a tu desayuno de mañana","Camina 15 minutos al sol antes del mediodía"],
-     cta:"Protocolo 30 Días Zenivita — Renovación Femenina Completa", link:"https://zenivita.online/oferta-30dias.html"}
+     cta:"Protocolo 30 Días Zenivita — Renovación Femenina Completa", link:"https://zenivita.online/oferta-30dias.html", precio:"US$27 · 30 días"}
 };
 
 var puntos={D:0,S:0,H:0,C:0,E:0}, idx=0;
@@ -176,7 +176,7 @@ document.getElementById('leadform').addEventListener('submit', function(e){
     +'<h2>'+R.titulo+'</h2>'
     +'<p><b>'+nombre+'</b>, '+R.diag+'</p>'
     +'<div class="acciones"><h3>✅ Tus 3 primeros pasos (empieza hoy):</h3><ol><li>'+R.acciones[0]+'</li><li>'+R.acciones[1]+'</li><li>'+R.acciones[2]+'</li></ol></div>'
-    +'<div class="cta-box"><p>Tu siguiente paso, hecho para tu resultado:</p><a class="btn" href="'+R.link+'">'+R.cta+' →</a><p style="margin-top:10px; font-size:13px;">Solo US$9 · Garantía de 7 días</p></div>';
+    +'<div class="cta-box"><p>Tu siguiente paso, hecho para tu resultado:</p><a class="btn" href="'+R.link+'">'+R.cta+' →</a><p style="margin-top:10px; font-size:13px;">'+(R.precio||'Solo US$9')+' · Garantía de 7 días</p></div>';
   document.getElementById('capture').classList.add('hidden');
   el.classList.remove('hidden');
   window.scrollTo({top:0,behavior:'smooth'});
