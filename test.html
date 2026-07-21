@@ -176,7 +176,24 @@ document.getElementById('leadform').addEventListener('submit', function(e){
     +'<h2>'+R.titulo+'</h2>'
     +'<p><b>'+nombre+'</b>, '+R.diag+'</p>'
     +'<div class="acciones"><h3>✅ Tus 3 primeros pasos (empieza hoy):</h3><ol><li>'+R.acciones[0]+'</li><li>'+R.acciones[1]+'</li><li>'+R.acciones[2]+'</li></ol></div>'
-    +'<div class="cta-box"><p>Tu siguiente paso, hecho para tu resultado:</p><a class="btn" href="'+R.link+'">'+R.cta+' →</a><p style="margin-top:10px; font-size:13px;">'+(R.precio||'Solo US$9')+' · Garantía de 7 días</p></div>';
+    +'<div class="cta-box"><p>Tu siguiente paso, hecho para tu resultado:</p>'
+    +'<div id="zvFlash" style="background:#FFF7EC;border:2px dashed #C1934E;border-radius:14px;padding:14px 16px;margin:0 0 14px;">'
+    +'<div style="font-size:14px;font-weight:bold;color:#8a5a1f;letter-spacing:1px;text-transform:uppercase;">🎁 Bono por decisión</div>'
+    +'<div style="font-size:15px;color:#4a4744;margin:6px 0;">Empieza en los próximos <b>15 minutos</b> y llévate de regalo el <b>Recetario Rápido Zenivita</b> (para imprimir).</div>'
+    +'<div style="font-family:Georgia,serif;font-size:26px;color:#173d2e;font-weight:bold;" id="zvTimer">15:00</div>'
+    +'</div>'
+    +'<a class="btn" href="'+R.link+'">'+R.cta+' →</a><p style="margin-top:10px; font-size:13px;">'+(R.precio||'Solo US$9')+' · Garantía de 7 días</p></div>';
+  try{
+    var zvEnd=Date.now()+15*60*1000;
+    var zvInt=setInterval(function(){
+      var s=Math.max(0,Math.round((zvEnd-Date.now())/1000));
+      var m=Math.floor(s/60), r=s%60;
+      var el=document.getElementById('zvTimer');
+      if(!el){clearInterval(zvInt);return;}
+      el.textContent=(m<10?'0':'')+m+':'+(r<10?'0':'')+r;
+      if(s<=0){clearInterval(zvInt);var f=document.getElementById('zvFlash');if(f)f.style.display='none';}
+    },1000);
+  }catch(_){}
   document.getElementById('capture').classList.add('hidden');
   el.classList.remove('hidden');
   window.scrollTo({top:0,behavior:'smooth'});
