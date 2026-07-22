@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Test Zenivita — ¿Qué sistema de tu cuerpo está pidiendo ayuda?</title>
 <meta name="description" content="Test gratuito de 2 minutos: descubre qué sistema de tu cuerpo está pidiendo ayuda y recibe tu mini-diagnóstico personalizado.">
+<!-- Meta Pixel (base — carga temprana en head) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1298126082381332');fbq('track','PageView');
+</script>
 <style>
   :root{
     --coral:#EF9C82; --teal:#1D4241; --teal-soft:#2A5A58; --cream:#FBF6F1; --ink:#2b2b2b;
@@ -169,8 +174,13 @@ document.getElementById('leadform').addEventListener('submit', function(e){
     fd.append('NOME',nombre); fd.append('EMAIL',email); fd.append('email_address_check',''); fd.append('locale','es');
     fd.append('RESULTADO',R.tag); fd.append('RESULTADO_COD',r);
     fetch(BREVO_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
-    try{fbq('track','Lead');}catch(_){ }
   }
+  /* Pixel: Lead SIEMPRE dispara (con eventID p/ dedupe) + evento backup */
+  try{
+    var eid='lead_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);
+    fbq('track','Lead',{content_name:'quiz_zenivita',content_category:R.tag},{eventID:eid});
+    fbq('trackCustom','QuizComplete',{resultado:r});
+  }catch(_){ }
   var el=document.getElementById('result');
   el.innerHTML='<span class="result-tag">'+R.tag+'</span>'
     +'<h2>'+R.titulo+'</h2>'
@@ -204,11 +214,6 @@ document.getElementById('leadform').addEventListener('submit', function(e){
 });
 
 render();
-</script>
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1298126082381332');fbq('track','PageView');
 </script>
 </body>
 </html>
