@@ -35,9 +35,18 @@ footer{text-align:center;font-size:.8rem;color:#84907f;padding:26px 0}
 <body>
 <div class="wrap">
  <div class="top">
-  <div class="check">✓</div>
-  <h1>¡Tu compra fue confirmada! Antes de continuar, esto es solo para ti…</h1>
+  <div class="check" id="topIcon">🌿</div>
+  <h1 id="topTitle">Espera — esto es solo para ti. Tu resultado pide un plan completo…</h1>
  </div>
+ <script>
+ /* Versión post-compra (upsell) solo con ?compra=1 en la URL; por defecto, versión fría */
+ try{
+   if(new URLSearchParams(location.search).get('compra')==='1'){
+     document.getElementById('topIcon').textContent='✓';
+     document.getElementById('topTitle').textContent='¡Tu compra fue confirmada! Antes de continuar, esto es solo para ti…';
+   }
+ }catch(_){ }
+ </script>
  <div class="card">
   <p class="aviso">Oferta única · Solo en esta página</p>
   <h2>Lleva tu renovación al siguiente nivel con el <span>Protocolo 30 Días Zenivita</span></h2>
