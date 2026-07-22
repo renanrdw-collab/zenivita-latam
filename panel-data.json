@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22 10:39 (BRT)",
+  "updated": "2026-07-22 19:57 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
@@ -107,7 +107,7 @@
   ],
   "hotmartNetFactor": 0.85,
   "funnel": {
-    "impressions": 27090,
+    "impressions": 27091,
     "clicks": 1231,
     "lpviews": 921,
     "checkouts": 16,
