@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Ritual de 7 Días — Zenivita | Tu reto gratis de bienestar</title>
+<meta name="description" content="7 días, 2 micro-acciones por día, hechas para lo que TÚ sientes. El reto gratis de bienestar femenino de Sofía · Zenivita.">
+<style>
+  :root{--green:#173d2e;--green2:#1f4c3a;--cream:#FBF6F1;--gold:#C9A25A;--gold-d:#C1934E;--coral:#EF9C82;--coral-d:#E07A5A;--ink:#33302e;--soft:#F2EDE0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Helvetica Neue',Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;min-height:100vh;}
+  .serif{font-family:Georgia,'Times New Roman',serif;}
+  .wrap{max-width:520px;margin:0 auto;padding:0 18px 70px;}
+  .hidden{display:none!important;}
+  img{max-width:100%;}
+
+  /* ===== HEADER ===== */
+  .top{background:linear-gradient(165deg,var(--green) 0%,var(--green2) 100%);color:#fff;padding:26px 18px 30px;border-radius:0 0 28px 28px;text-align:center;}
+  .brand{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:bold;}
+  .top h1{font-family:Georgia,serif;font-size:clamp(24px,6vw,32px);margin:8px 0 4px;line-height:1.15;}
+  .top .sub{font-size:15px;opacity:.92;max-width:420px;margin:0 auto;}
+
+  /* ===== ONBOARDING ===== */
+  .ob-card{background:#fff;border-radius:18px;box-shadow:0 10px 30px rgba(23,61,46,.10);padding:26px 22px;margin:-18px auto 0;position:relative;max-width:480px;}
+  .ob-card h2{font-family:Georgia,serif;color:var(--green);font-size:21px;margin-bottom:6px;text-align:center;}
+  .ob-card .hint{font-size:14px;color:#7a756f;text-align:center;margin-bottom:16px;}
+  .tracks{display:grid;gap:10px;}
+  .trk{display:flex;align-items:center;gap:12px;border:1.8px solid #e7e0d0;border-radius:14px;padding:13px 15px;cursor:pointer;background:#fff;text-align:left;font-size:15.5px;transition:border .12s,transform .12s;width:100%;font-family:inherit;color:var(--ink);}
+  .trk:hover{transform:translateY(-1px);}
+  .trk.sel{border-color:var(--gold);background:#FBF4E7;}
+  .trk .em{font-size:24px;flex:none;}
+  .trk b{color:var(--green);display:block;font-size:16px;}
+  .trk span.d{font-size:13px;color:#8a857f;}
+  .field{margin-top:16px;}
+  .field label{font-size:13.5px;font-weight:bold;color:var(--green);display:block;margin-bottom:5px;}
+  .field input{width:100%;padding:13px 15px;border:1.8px solid #e7e0d0;border-radius:12px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink);}
+  .field input:focus{outline:none;border-color:var(--gold);}
+  .btn{display:block;width:100%;background:var(--coral);color:#fff;border:none;font-size:17.5px;font-weight:bold;padding:16px;border-radius:999px;cursor:pointer;margin-top:16px;font-family:inherit;box-shadow:0 8px 22px rgba(239,156,130,.4);transition:transform .12s;}
+  .btn:hover{transform:translateY(-2px);}
+  .ob-note{font-size:12.5px;color:#9a958f;text-align:center;margin-top:12px;line-height:1.5;}
+
+  /* ===== DASHBOARD ===== */
+  .dash-head{display:flex;align-items:center;gap:16px;justify-content:center;margin:-24px auto 0;position:relative;max-width:480px;background:#fff;border-radius:18px;box-shadow:0 10px 30px rgba(23,61,46,.10);padding:16px 20px;}
+  .ring{position:relative;width:84px;height:84px;flex:none;}
+  .ring svg{transform:rotate(-90deg);}
+  .ring .pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:bold;color:var(--green);font-size:17px;line-height:1;}
+  .ring .pct small{font-size:9.5px;color:#8a857f;font-weight:normal;margin-top:2px;letter-spacing:.5px;}
+  .stats{text-align:left;}
+  .stats .hola{font-family:Georgia,serif;color:var(--green);font-size:18px;margin-bottom:2px;}
+  .streak{font-size:14.5px;color:#6b6660;}
+  .streak b{color:var(--coral-d);font-size:17px;}
+  .badges{margin-top:6px;font-size:19px;letter-spacing:3px;}
+  .badges .off{filter:grayscale(1);opacity:.35;}
+
+  /* Sofía message */
+  .sofia-msg{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:16px;box-shadow:0 6px 20px rgba(23,61,46,.08);padding:16px 18px;margin:18px 0;}
+  .sofia-msg img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none;}
+  .sofia-msg .bub{font-size:14.5px;color:#4a4744;}
+  .sofia-msg .bub b{color:var(--green);display:block;font-size:13px;margin-bottom:3px;font-family:Georgia,serif;}
+
+  /* Day cards */
+  .days{display:grid;gap:12px;margin-top:6px;}
+  .day{background:#fff;border-radius:16px;box-shadow:0 6px 20px rgba(23,61,46,.07);overflow:hidden;border:1.8px solid transparent;}
+  .day.today{border-color:var(--gold);}
+  .day .head{display:flex;align-items:center;gap:12px;padding:15px 18px;cursor:pointer;}
+  .day .num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--soft);color:var(--green);font-weight:bold;display:flex;align-items:center;justify-content:center;font-size:15px;font-family:Georgia,serif;}
+  .day.done .num{background:var(--green);color:#fff;}
+  .day.locked .num{background:#f0ece4;color:#c2bcb2;}
+  .day .ttl{flex:1;}
+  .day .ttl b{color:var(--green);font-size:16px;display:block;font-family:Georgia,serif;}
+  .day .ttl span{font-size:12.5px;color:#9a958f;}
+  .day.locked .ttl b{color:#b5afa5;}
+  .day .st{font-size:18px;}
+  .day .body{padding:0 18px 18px;display:none;}
+  .day.open .body{display:block;}
+  .task{display:flex;gap:12px;align-items:flex-start;background:var(--soft);border-radius:12px;padding:13px 15px;margin-bottom:10px;cursor:pointer;transition:background .12s;}
+  .task.done{background:#E9F2EA;}
+  .task .chk{flex:none;width:24px;height:24px;border-radius:50%;border:2px solid #c9c2b6;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;margin-top:1px;}
+  .task.done .chk{background:var(--green);border-color:var(--green);}
+  .task .tx{font-size:14.5px;color:#4a4744;}
+  .task .tx b{color:var(--green);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:2px;}
+  .why{font-size:13px;color:#7a756f;background:#FBF4E7;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:10px 14px;margin-top:4px;line-height:1.55;}
+  .why b{color:var(--gold-d);}
+  .locknote{font-size:13.5px;color:#9a958f;padding:0 18px 16px;display:flex;gap:8px;align-items:center;}
+
+  /* Offer card */
+  .offer{background:linear-gradient(165deg,var(--green) 0%,var(--green2) 100%);color:#fff;border-radius:18px;padding:24px 22px;margin:20px 0;text-align:center;box-shadow:0 12px 30px rgba(23,61,46,.25);}
+  .offer .tag{display:inline-block;background:var(--gold);color:var(--green);font-size:11.5px;font-weight:bold;letter-spacing:1.5px;padding:5px 14px;border-radius:999px;text-transform:uppercase;margin-bottom:10px;}
+  .offer h3{font-family:Georgia,serif;font-size:20px;margin-bottom:8px;}
+  .offer p{font-size:14.5px;color:#dcd6c8;margin-bottom:14px;max-width:380px;margin-left:auto;margin-right:auto;}
+  .offer a{display:inline-block;background:var(--coral);color:#fff;font-size:16px;font-weight:bold;padding:13px 32px;border-radius:999px;text-decoration:none;}
+  .offer .pp{font-size:12.5px;color:#b9c2b3;margin-top:10px;}
+
+  /* Capture + whatsapp cards */
+  .mini-card{background:#fff;border:1.8px dashed var(--gold);border-radius:16px;padding:18px 20px;margin:18px 0;text-align:center;}
+  .mini-card h4{font-family:Georgia,serif;color:var(--green);font-size:17px;margin-bottom:6px;}
+  .mini-card p{font-size:13.5px;color:#7a756f;margin-bottom:12px;}
+  .mini-card input{width:100%;padding:12px 14px;border:1.8px solid #e7e0d0;border-radius:12px;font-size:15px;margin-bottom:10px;font-family:inherit;}
+  .mini-card button, .mini-card a.wbtn{display:inline-block;background:var(--green);color:#fff;border:none;font-size:15px;font-weight:bold;padding:12px 28px;border-radius:999px;cursor:pointer;font-family:inherit;text-decoration:none;}
+  .mini-card a.wbtn{background:#25D366;}
+
+  /* Completion */
+  .fin{background:linear-gradient(165deg,#FBF4E7 0%,var(--cream) 100%);border:2px solid var(--gold);border-radius:20px;padding:28px 22px;margin:20px 0;text-align:center;}
+  .fin .crown{font-size:46px;}
+  .fin h3{font-family:Georgia,serif;color:var(--green);font-size:23px;margin:8px 0 6px;}
+  .fin p{font-size:14.5px;color:#6b6660;max-width:400px;margin:0 auto 14px;}
+  .share{display:inline-block;background:#25D366;color:#fff;font-size:15px;font-weight:bold;padding:12px 26px;border-radius:999px;text-decoration:none;margin-top:4px;}
+
+  /* Badge toast */
+  .toast{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%) scale(.8);background:#fff;border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.28);padding:30px 34px;text-align:center;z-index:99;opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,1.4,.4,1);max-width:320px;}
+  .toast.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  .toast .bem{font-size:52px;}
+  .toast h4{font-family:Georgia,serif;color:var(--green);font-size:20px;margin:6px 0 4px;}
+  .toast p{font-size:13.5px;color:#7a756f;}
+
+  footer{text-align:center;font-size:12px;color:#9a9a9a;margin-top:30px;line-height:1.7;padding:0 20px;}
+  .confetti{position:fixed;top:-10px;font-size:20px;z-index:98;pointer-events:none;animation:fall 2.6s linear forwards;}
+  @keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.2;}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="brand">🌿 Zenivita</div>
+  <h1 id="topTitle">Mi Ritual de 7 Días</h1>
+  <p class="sub" id="topSub">2 micro-acciones al día, hechas para lo que TÚ sientes. Gratis, con Sofía.</p>
+</div>
+
+<div class="wrap">
+
+  <!-- ONBOARDING -->
+  <div id="onboard" class="ob-card">
+    <h2>¿Qué quieres transformar esta semana?</h2>
+    <p class="hint">Elige tu camino — cada ritual es diferente 👇</p>
+    <div class="tracks" id="trackList"></div>
+    <div class="field">
+      <label for="obName">¿Cómo te llamas?</label>
+      <input type="text" id="obName" placeholder="Tu nombre" maxlength="30">
+    </div>
+    <button class="btn" id="obStart">Empezar mi ritual gratis →</button>
+    <p class="ob-note">Sin registro obligatorio · tu progreso se guarda en este dispositivo · contenido educativo, no sustituye orientación médica.</p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dash" class="hidden">
+    <div class="dash-head">
+      <div class="ring">
+        <svg width="84" height="84"><circle cx="42" cy="42" r="36" fill="none" stroke="#EFE9DC" stroke-width="8"/><circle id="ringFg" cx="42" cy="42" r="36" fill="none" stroke="#C9A25A" stroke-width="8" stroke-linecap="round" stroke-dasharray="226" stroke-dashoffset="226"/></svg>
+        <div class="pct"><span id="pctNum">0/7</span><small>DÍAS</small></div>
+      </div>
+      <div class="stats">
+        <div class="hola" id="holaName">Hola 🌿</div>
+        <div class="streak">Racha: <b id="streakNum">0</b> 🔥</div>
+        <div class="badges" id="badgeRow"></div>
+      </div>
+    </div>
+
+    <div class="sofia-msg">
+      <img src="sofia-home.jpg" alt="Sofía">
+      <div class="bub"><b>Sofía te dice:</b><span id="sofiaTxt"></span></div>
+    </div>
+
+    <div id="capture" class="mini-card hidden">
+      <h4>📩 ¿Quieres que te acompañe por correo?</h4>
+      <p>Te envío recordatorios y consejos de tu ritual (gratis, sin spam).</p>
+      <input type="email" id="capEmail" placeholder="tu@correo.com">
+      <button id="capBtn">Acompáñame, Sofía 💛</button>
+    </div>
+
+    <div class="days" id="dayList"></div>
+
+    <div id="offerBox" class="hidden"></div>
+
+    <div id="waCard" class="mini-card">
+      <h4>💚 Tu recordatorio diario</h4>
+      <p>Escríbele a Sofía y recibe el empujoncito de cada día por WhatsApp.</p>
+      <a class="wbtn" id="waLink" target="_blank" rel="noopener">Quiero mi recordatorio →</a>
+    </div>
+
+    <div id="finBox" class="hidden"></div>
+  </div>
+
+  <footer>
+    Zenivita · Bienestar femenino natural · Contenido educativo; no sustituye orientación médica.<br>
+    <a href="link.html" style="color:#C1934E;">Ver todo lo de Zenivita</a>
+  </footer>
+</div>
+
+<div class="toast" id="toast"><div class="bem" id="toastEm">🌱</div><h4 id="toastT"></h4><p id="toastP"></p></div>
+
+<script>
+/* ================= DATA ================= */
+var TRACKS = {
+ D:{nm:"Ritual Vientre Ligero",em:"🍋",ds:"Hinchazón, digestión pesada",days:[
+  {m:"Un vaso de agua tibia con limón al despertar, antes del café.",n:"Infusión de manzanilla + anís después de cenar, tapada 5-7 min.",s:"El agua tibia en ayunas estimula la motilidad intestinal — tu sistema digestivo despierta contigo."},
+  {m:"Desayuna sin pantallas y mastica cada bocado 15-20 veces.",n:"Masaje abdominal 2 min en sentido del reloj, con las manos tibias.",s:"La digestión empieza en la boca: masticar bien reduce la carga del estómago y la hinchazón de la tarde."},
+  {m:"Agrega una fruta con fibra al desayuno: papaya, kiwi o pera.",n:"Infusión de menta después de tu comida más pesada.",s:"<b>Ciencia:</b> el aceite de menta mostró alivio significativo del intestino irritable en ensayos clínicos (Alammar 2019, BMC)."},
+  {m:"Camina 10 minutos después de almorzar.",n:"Cena al menos 3 horas antes de acostarte esta noche.",s:"Caminar tras comer acelera el vaciado gástrico y estabiliza la glucosa — digestión más ligera, sueño más profundo."},
+  {m:"Hoy sin bebidas con gas ni chicle (aire tragado = vientre inflado).",n:"Infusión de jengibre: hierve 3-4 rodajas 8 min, agrega limón.",s:"La aerofagia (aire que tragamos) es causa directa de distensión. Un día sin gas se nota."},
+  {m:"Suma un fermentado al desayuno: yogur natural o kéfir.",n:"Piernas contra la pared 5 min + respiración abdominal lenta.",s:"Los fermentados aportan probióticos que equilibran tu microbiota — tu 'segundo cerebro' te lo agradece."},
+  {m:"Repite tu ritual favorito de la semana. Ya es tuyo.",n:"Escribe cómo se siente tu abdomen hoy vs el día 1.",s:"7 días de señales constantes son suficientes para que el sistema digestivo empiece a regularse. Esto recién comienza."}]},
+ S:{nm:"Ritual Noche Serena",em:"🌙",ds:"Dormir mal, despertar cansada",days:[
+  {m:"Luz natural 5-10 min al despertar: ventana, balcón o calle.",n:"Pantallas fuera 30 min antes de dormir. Solo por hoy — pruébalo.",s:"La luz de la mañana ancla tu reloj biológico y adelanta la melatonina de la noche. El buen sueño empieza al despertar."},
+  {m:"Tu último café antes de las 2 de la tarde.",n:"Infusión de manzanilla + tila, 45 min antes de acostarte.",s:"La cafeína tiene una vida media de ~6 horas: un café de las 5pm sigue circulando a medianoche."},
+  {m:"A media tarde: 10 respiraciones 4-6 (inhala en 4, exhala en 6).",n:"Ducha tibia 1-2 horas antes de dormir.",s:"<b>Ciencia:</b> la manzanilla mostró reducción de la ansiedad leve a moderada en estudios clínicos (Amsterdam 2009)."},
+  {m:"Prepara tu cueva: oscuridad total esta noche (o antifaz).",n:"Baja la temperatura del cuarto y acuéstate a hora fija.",s:"El descenso de la temperatura corporal es la señal biológica que dispara el sueño profundo."},
+  {m:"Hoy nada de siestas de más de 20 minutos.",n:"'Descarga mental': escribe tus 3 pendientes en papel antes de acostarte.",s:"Externalizar los pendientes reduce la rumiación — esa vocecita de las 3am pierde fuerza."},
+  {m:"Movimiento suave 15 min: caminar o estirar (no de noche).",n:"Lavanda: 2 gotas en la almohada o en el difusor.",s:"<b>Ciencia:</b> la lavanda redujo la ansiedad y el insomnio asociado en ensayos clínicos (Kasper 2014)."},
+  {m:"Despierta a la misma hora que ayer. Sí, hoy también.",n:"Ritual completo: infusión + luz baja + 1 minuto de gratitud.",s:"La regularidad de la hora de despertar es el predictor nº1 de un buen sueño. Ya tienes tu ritual."}]},
+ H:{nm:"Ritual Equilibrio",em:"🌺",ds:"Ciclo, hormonas, cambios de ánimo",days:[
+  {m:"Desayuna proteína en la primera hora: huevo, yogur o frijoles.",n:"Infusión de salvia u hoja de frambuesa, tapada 8 min.",s:"Un desayuno con proteína estabiliza la glucosa y la insulina — la base silenciosa del equilibrio hormonal."},
+  {m:"10 minutos de sol suave (mañana o tarde).",n:"Cena con magnesio: verduras verdes, semillas o cacao puro.",s:"El magnesio participa en más de 300 reacciones del cuerpo, incluidas las hormonales. La mayoría no llega al mínimo."},
+  {m:"1 cucharada de linaza molida en el desayuno.",n:"Baño o ducha caliente + 5 minutos de calma sin celular.",s:"<b>Ciencia:</b> los lignanos de la linaza apoyan el metabolismo saludable de los estrógenos."},
+  {m:"Camina 20 minutos: el ejercicio suave regula el cortisol.",n:"¿Molestias del ciclo? Manzanilla + jengibre, tibia.",s:"<b>Ciencia:</b> el jengibre redujo el dolor menstrual en un metaanálisis, comparable a antiinflamatorios (Daily 2015, Pain Medicine)."},
+  {m:"Cambia el azúcar añadida de hoy por fruta entera.",n:"Mini-journaling: ¿cómo estuvo tu energía a lo largo del día?",s:"Los picos de glucosa amplifican los síntomas hormonales: ánimo, antojos y energía en montaña rusa."},
+  {m:"Grasas buenas hoy: aguacate, aceite de oliva o un puñado de nueces.",n:"Respiración 4-7-8 antes de dormir (inhala 4, sostén 7, exhala 8).",s:"Tus hormonas se fabrican a partir de grasas saludables. Sin materia prima no hay equilibrio."},
+  {m:"Arma tu plato ideal: proteína + fibra + grasa buena.",n:"Celebra con tu ritual de autocuidado favorito de la semana.",s:"7 días de señales estables le enseñan a tu cuerpo un ritmo nuevo. Tu ciclo lo va a notar."}]},
+ C:{nm:"Ritual Calma Profunda",em:"🕊️",ds:"Ansiedad, tensión, mente acelerada",days:[
+  {m:"Antes de tomar el celular: 5 respiraciones profundas en la cama.",n:"Infusión de tila o melisa + luz baja 30 min antes de dormir.",s:"La exhalación larga activa el nervio vago — el freno natural de tu sistema de estrés."},
+  {m:"Escribe 3 cosas que SÍ están bajo tu control hoy.",n:"Estira cuello y hombros 5 minutos, despacio.",s:"El estrés crónico se acumula como tensión en cuello, hombros y mandíbula. Soltarlo también es mental."},
+  {m:"Camina 10 min sin audífonos. Solo mira, escucha, respira.",n:"Bergamota o lavanda (diluida) en las muñecas + 3 respiraciones.",s:"<b>Ciencia:</b> los aromas llegan directo al sistema límbico — la sede de tus emociones — sin pasar por la mente racional."},
+  {m:"Pon una alarma de 'pausa' a media tarde: 2 min de respiración 4-6.",n:"Ducha consciente: siente el agua, sin planear el mañana.",s:"Las micro-pausas cortan la acumulación de cortisol antes de que llegue a la noche."},
+  {m:"Mono-tarea: 1 hora haciendo UNA sola cosa a la vez.",n:"'Descarga mental' en papel + manzanilla.",s:"El multitasking dispara el estrés percibido. La mono-tarea es un ansiolítico gratis."},
+  {m:"Di 'no' a una cosa pequeña hoy. Tu energía es tuya.",n:"10 minutos solo para ti: música calma + tu infusión.",s:"Cada 'sí' automático es energía que sale. Los límites también son autocuidado."},
+  {m:"Repite tu pausa favorita de la semana.",n:"Cierre: escribe 3 cosas buenas de estos 7 días.",s:"La gratitud entrena a tu cerebro a buscar lo bueno — y baja la reactividad al estrés. Ya tienes herramientas."}]},
+ E:{nm:"Ritual Energía Viva",em:"⚡",ds:"Cansancio, agotamiento, sin fuerzas",days:[
+  {m:"Agua antes que café: un vaso grande al despertar.",n:"Acuéstate 30 minutos antes que ayer. Solo hoy — mira qué pasa.",s:"La causa más común de fatiga es la más simple: deshidratación leve + deuda de sueño acumulada."},
+  {m:"Luz + movimiento: 5 min de estiramiento cerca de una ventana.",n:"Cena ligera y nada de pantallas en la cama.",s:"Luz y movimiento matinales le dicen a tu cuerpo 'es de día': la energía sigue a esa señal."},
+  {m:"Té verde a media mañana en vez del segundo café.",n:"Piernas contra la pared 5 minutos al final del día.",s:"<b>Ciencia:</b> la L-teanina del té verde + su cafeína suave mejoran la atención sin nerviosismo (Camfield 2014)."},
+  {m:"Difusor o inhalación de naranja + romero 10 min al empezar el día.",n:"Snack de la tarde con proteína (no galletas): yogur, huevo, nueces.",s:"<b>Ciencia:</b> el romero mejoró memoria y alerta en un estudio con 144 adultos (Moss 2003)."},
+  {m:"15 minutos de caminata rápida, donde sea.",n:"Magnesio en la cena: verduras verdes, semillas, legumbres.",s:"El movimiento genera energía — la fatiga por sedentarismo se cura moviéndose, no descansando más."},
+  {m:"Detecta tu 'ladrón de energía' nº1 (¿pantalla nocturna? ¿azúcar?) y ajústalo hoy.",n:"Rooibos frío o tibio por la tarde-noche: hidrata sin cafeína.",s:"La energía no se crea: se deja de fugar. Un ladrón detectado vale más que dos cafés."},
+  {m:"Tu mañana ideal completa: agua + luz + movimiento + proteína.",n:"Compara tu energía de hoy con la del día 1. Escríbelo.",s:"Acabas de construir la mañana que te sostiene. Repítela y será automática."}]}
+};
+var OFFERS = {
+ D:{t:"Protocolo Intestino Ligero",p:"US$9",u:"intestino.html",d:"10 días para deshinchar tu abdomen — el paso completo después de tu ritual."},
+ S:{t:"Guía Sueño Reparador",p:"US$9",u:"sueno.html",d:"El método completo para dormir profundo — tu ritual fue solo el comienzo."},
+ H:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 días para equilibrar hormonas, ciclo y energía — el siguiente nivel de tu ritual."},
+ C:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 días para salir del modo alerta y recuperar tu calma — el siguiente nivel de tu ritual."},
+ E:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 días para reconstruir tu vitalidad desde la raíz — el siguiente nivel de tu ritual."}
+};
+var SOFIA = [
+ "Hoy no cambiamos tu vida entera. Empezamos por algo pequeño — así se construyen los rituales que sí duran. 💛",
+ "El día 2 es donde la mayoría abandona. Tú no. Dos micro-acciones y listo.",
+ "Tres días seguidos cambian más que un mes de intentos sueltos. Hoy toca ciencia — mira el porqué de tu ritual. 🔬",
+ "Ya pasaste la mitad más difícil. Tu cuerpo empieza a esperar estas señales.",
+ "Día 5: esto ya casi es un hábito. ¿Notas algo diferente? Yo aposto que sí. 🌿",
+ "Penúltimo día. Lo que estás construyendo no es una semana — es una nueva forma de tratarte.",
+ "Último día, querida. Termina fuerte: hoy celebramos. 👑"
+];
+var BADGES = [
+ {at:1,em:"🌱",t:"Primer Paso",p:"Empezaste. Eso ya te separa de la mayoría."},
+ {at:3,em:"🔥",t:"Constancia",p:"3 días completos. Tu cuerpo ya está escuchando."},
+ {at:5,em:"🌿",t:"Ritmo Propio",p:"5 días. Esto ya casi es parte de ti."},
+ {at:7,em:"👑",t:"Ritual Completo",p:"7 de 7. Terminaste lo que empezaste, reina."}
+];
+var BREVO_ENDPOINT = "https://1cd75ab9.sibforms.com/serve/MUIFAHbOPQzEuoGGEz6zUN9fWLL7C-1_sH6cecAbH_FvRhnn79YIuVo-BjSG8-ezU4_tFUJ9O_xclyVKOslCEJjI-PaweO6k_fBdVff-pmy5mGGpn9A8a3SRhM5vebcMmoH255z-mmTkSPkTN7SrG1bzt2g_SyxeE6mBZjlTzwvdheUgDBp30B7KoPUz3EbhqynFPQwybOiBgRoNqA==";
+var RESULTNAMES = {D:"Sistema Digestivo",S:"Sueño",H:"Hormonas",C:"Sistema Nervioso",E:"Energía"};
+var WA_NUM = "5519998089854";
+
+/* ================= STATE ================= */
+function load(){ try{return JSON.parse(localStorage.getItem('zvRitual'))||null;}catch(e){return null;} }
+function save(st){ localStorage.setItem('zvRitual',JSON.stringify(st)); }
+var S_ = load();
+var selTrack = null;
+
+function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function daysBetween(a,b){ return Math.round((new Date(b+'T12:00')-new Date(a+'T12:00'))/86400000); }
+function completedCount(){ var c=0; for(var i=1;i<=7;i++){ var d=S_.done[i]; if(d&&d.m&&d.n)c++; } return c; }
+function dayComplete(i){ var d=S_.done[i]; return !!(d&&d.m&&d.n); }
+function streak(){
+  var dates=[]; for(var i=1;i<=7;i++){ var d=S_.done[i]; if(d&&d.m&&d.n&&d.date)dates.push(d.date); }
+  if(!dates.length)return 0; dates.sort();
+  var t=todayStr(), last=dates[dates.length-1];
+  if(daysBetween(last,t)>1)return 0;
+  var s=1;
+  for(var j=dates.length-1;j>0;j--){ if(daysBetween(dates[j-1],dates[j])===1)s++; else break; }
+  return s;
+}
+
+/* ================= ONBOARDING ================= */
+function renderOnboard(){
+  var list=document.getElementById('trackList'); list.innerHTML='';
+  Object.keys(TRACKS).forEach(function(k){
+    var t=TRACKS[k];
+    var b=document.createElement('button'); b.className='trk'+(selTrack===k?' sel':''); b.type='button';
+    b.innerHTML='<span class="em">'+t.em+'</span><span><b>'+t.nm+'</b><span class="d">'+t.ds+'</span></span>';
+    b.onclick=function(){ selTrack=k; renderOnboard(); };
+    list.appendChild(b);
+  });
+}
+document.getElementById('obStart').onclick=function(){
+  if(!selTrack){ alert('Elige tu ritual primero 🌿'); return; }
+  var nm=document.getElementById('obName').value.trim()||'querida';
+  S_={code:selTrack,name:nm,start:todayStr(),done:{},email:false,q:(new URLSearchParams(location.search).get('q')==='1')};
+  save(S_);
+  try{ fbq('trackCustom','RitualStart',{track:selTrack}); }catch(e){}
+  show();
+};
+
+/* ================= DASHBOARD ================= */
+function show(){
+  if(!S_){ document.getElementById('onboard').classList.remove('hidden'); document.getElementById('dash').classList.add('hidden');
+    var p=new URLSearchParams(location.search).get('r'); if(p&&TRACKS[p]){ selTrack=p; }
+    renderOnboard(); return; }
+  document.getElementById('onboard').classList.add('hidden');
+  document.getElementById('dash').classList.remove('hidden');
+  var t=TRACKS[S_.code], cc=completedCount();
+  document.getElementById('topTitle').textContent=t.em+' '+t.nm;
+  document.getElementById('topSub').textContent='Tu reto de 7 días con Sofía · día a día, a tu ritmo.';
+  document.getElementById('holaName').textContent='Hola, '+S_.name+' 🌿';
+  document.getElementById('pctNum').textContent=cc+'/7';
+  document.getElementById('ringFg').style.strokeDashoffset=226-(226*cc/7);
+  document.getElementById('streakNum').textContent=streak();
+  var br=''; BADGES.forEach(function(b){ br+='<span class="'+(cc>=b.at?'':'off')+'" title="'+b.t+'">'+b.em+'</span>'; });
+  document.getElementById('badgeRow').innerHTML=br;
+  var curDay=Math.min(cc+1,7);
+  document.getElementById('sofiaTxt').textContent=SOFIA[(cc>=7?6:curDay-1)];
+  document.getElementById('waLink').href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('Hola Sofía 🌿 Estoy haciendo Mi Ritual de 7 Días ('+t.nm+') y quiero mi recordatorio diario');
+  // capture card: after day1 complete, if not from quiz and no email yet
+  var cap=document.getElementById('capture');
+  if(cc>=1 && !S_.email && !S_.q){ cap.classList.remove('hidden'); } else { cap.classList.add('hidden'); }
+  renderDays(); renderOffer(); renderFin();
+}
+function unlocked(i){
+  if(i===1)return true;
+  if(!dayComplete(i-1))return false;
+  return daysBetween(S_.start,todayStr())>=i-1;
+}
+function renderDays(){
+  var el=document.getElementById('dayList'); el.innerHTML='';
+  var t=TRACKS[S_.code], cc=completedCount(), cur=Math.min(cc+1,7);
+  for(var i=1;i<=7;i++)(function(i){
+    var d=t.days[i-1], comp=dayComplete(i), unl=unlocked(i);
+    var card=document.createElement('div');
+    card.className='day'+(comp?' done':'')+(!unl?' locked':'')+((i===cur&&unl&&!comp)?' today open':'');
+    var st=comp?'✅':(unl?'🌿':'🔒');
+    var sub=comp?'Completado':(unl?(i===cur?'Tu día de hoy':'Disponible'):(dayComplete(i-1)?'Se desbloquea mañana':'Completa el día anterior'));
+    card.innerHTML='<div class="head"><div class="num">'+i+'</div><div class="ttl"><b>Día '+i+'</b><span>'+sub+'</span></div><div class="st">'+st+'</div></div>';
+    if(unl){
+      var body=document.createElement('div'); body.className='body';
+      body.innerHTML=
+        '<div class="task'+(S_.done[i]&&S_.done[i].m?' done':'')+'" data-d="'+i+'" data-k="m"><div class="chk">✓</div><div class="tx"><b>☀️ Mañana</b>'+d.m+'</div></div>'+
+        '<div class="task'+(S_.done[i]&&S_.done[i].n?' done':'')+'" data-d="'+i+'" data-k="n"><div class="chk">✓</div><div class="tx"><b>🌙 Noche</b>'+d.n+'</div></div>'+
+        '<div class="why">💡 '+d.s+'</div>';
+      card.appendChild(body);
+      card.querySelector('.head').onclick=function(){ card.classList.toggle('open'); };
+      body.querySelectorAll('.task').forEach(function(tk){
+        tk.onclick=function(){ toggleTask(parseInt(tk.getAttribute('data-d')),tk.getAttribute('data-k')); };
+      });
+    } else {
+      card.querySelector('.head').style.cursor='default';
+      if(dayComplete(i-1)){
+        var ln=document.createElement('div'); ln.className='locknote'; ln.innerHTML='🌙 Vuelve mañana — los rituales se construyen un día a la vez.';
+        card.appendChild(ln);
+      }
+    }
+    el.appendChild(card);
+  })(i);
+}
+function toggleTask(day,k){
+  if(!S_.done[day])S_.done[day]={m:false,n:false,date:null};
+  var was=dayComplete(day);
+  S_.done[day][k]=!S_.done[day][k];
+  if(dayComplete(day)&&!was){
+    S_.done[day].date=todayStr();
+    try{ fbq('trackCustom','RitualCheckin',{track:S_.code,day:day}); }catch(e){}
+    var cc=completedCount();
+    var b=BADGES.filter(function(x){return x.at===cc;})[0];
+    if(b){ toast(b.em,b.t,b.p); confetti(); }
+    if(cc===7){ try{ fbq('trackCustom','RitualComplete',{track:S_.code}); }catch(e){} }
+  }
+  save(S_); show();
+}
+function renderOffer(){
+  var box=document.getElementById('offerBox'), cc=completedCount();
+  if(cc>=2&&cc<7){
+    var o=OFFERS[S_.code];
+    box.classList.remove('hidden');
+    box.innerHTML='<div class="offer"><span class="tag">Tu siguiente nivel</span><h3>'+o.t+'</h3><p>'+o.d+'</p><a href="'+o.u+'?utm_source=ritual&utm_medium=app&utm_campaign=dia'+cc+'">Quiero el protocolo completo · '+o.p+' →</a><div class="pp">Garantía 7 días · OXXO, Nequi, Yape, tarjeta o PayPal</div></div>';
+  } else box.classList.add('hidden');
+}
+function renderFin(){
+  var box=document.getElementById('finBox'), cc=completedCount();
+  if(cc>=7){
+    var o=OFFERS[S_.code];
+    box.classList.remove('hidden');
+    var sh='https://wa.me/?text='+encodeURIComponent('🔥 Completé Mi Ritual de 7 Días de Zenivita ('+TRACKS[S_.code].nm+') 🌿 Haz el tuyo gratis: https://zenivita.online/ritual.html');
+    box.innerHTML='<div class="fin"><div class="crown">👑</div><h3>¡Lo lograste, '+S_.name+'!</h3><p>7 de 7. La mayoría no llega ni al día 3 — tú terminaste. Este ritual ya es tuyo para siempre.</p><a class="share" href="'+sh+'" target="_blank" rel="noopener">📲 Compartir mi logro</a></div>'+
+    '<div class="offer"><span class="tag">🎁 Regalo de graduación</span><h3>'+o.t+'</h3><p>Terminaste tu ritual — este es el paso completo. Y por completar los 7 días, el Recetario Rápido va de regalo con tu compra.</p><a href="'+o.u+'?utm_source=ritual&utm_medium=app&utm_campaign=graduada">Continuar mi transformación · '+o.p+' →</a><div class="pp">Garantía 7 días · OXXO, Nequi, Yape, tarjeta o PayPal</div></div>';
+  } else box.classList.add('hidden');
+}
+
+/* capture */
+document.getElementById('capBtn').onclick=function(){
+  var em=document.getElementById('capEmail').value.trim();
+  if(!em||em.indexOf('@')<0){ alert('Escribe tu correo 💛'); return; }
+  var fd=new FormData();
+  fd.append('EMAIL',em); fd.append('NOME',S_.name);
+  fd.append('RESULTADO',RESULTNAMES[S_.code]); fd.append('RESULTADO_COD',S_.code);
+  fd.append('email_address_check',''); fd.append('locale','es');
+  fetch(BREVO_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+  S_.email=true; save(S_);
+  try{ fbq('track','Lead'); }catch(e){}
+  toast('💌','¡Listo!','Sofía te acompaña desde ahora. Revisa tu correo.');
+  show();
+};
+
+/* toast + confetti */
+var toastTimer=null;
+function toast(em,t,p){
+  document.getElementById('toastEm').textContent=em;
+  document.getElementById('toastT').textContent=t;
+  document.getElementById('toastP').textContent=p;
+  var el=document.getElementById('toast'); el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(function(){el.classList.remove('show');},2600);
+}
+function confetti(){
+  var ems=['🌿','✨','💛','🌸','🍃'];
+  for(var i=0;i<24;i++){
+    var s=document.createElement('div'); s.className='confetti';
+    s.textContent=ems[i%ems.length];
+    s.style.left=(Math.random()*100)+'vw';
+    s.style.animationDelay=(Math.random()*0.6)+'s';
+    s.style.fontSize=(14+Math.random()*14)+'px';
+    document.body.appendChild(s);
+    setTimeout(function(x){return function(){x.remove();};}(s),3200);
+  }
+}
+
+show();
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1298126082381332');fbq('track','PageView');
+</script>
+</body>
+</html>
