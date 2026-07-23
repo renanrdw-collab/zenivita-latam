@@ -1,13 +1,13 @@
 {
-  "updated": "2026-07-22 19:57 (BRT)",
+  "updated": "2026-07-23 10:45 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
-    "usdRate": 0.1968
+    "usdRate": 0.1973
   },
   "month": {
     "label": "Julho/2026",
-    "daysElapsed": 22,
+    "daysElapsed": 23,
     "daysTotal": 31
   },
   "daily": [
@@ -19,37 +19,37 @@
     },
     {
       "d": "12/07",
-      "spend": 7.17,
+      "spend": 7.19,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "13/07",
-      "spend": 10.03,
+      "spend": 10.06,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "14/07",
-      "spend": 7.41,
+      "spend": 7.43,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "15/07",
-      "spend": 2.04,
+      "spend": 2.05,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "16/07",
-      "spend": 3.26,
+      "spend": 3.27,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "17/07",
-      "spend": 3.07,
+      "spend": 3.08,
       "sales": 0,
       "rev": 0
     },
@@ -61,13 +61,13 @@
     },
     {
       "d": "19/07",
-      "spend": 6.28,
+      "spend": 6.3,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "20/07",
-      "spend": 10.14,
+      "spend": 10.17,
       "sales": 0,
       "rev": 0
     },
