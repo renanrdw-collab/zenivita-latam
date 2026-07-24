@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-24 10:26 (BRT)",
+  "updated": "2026-07-24 19:57 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
@@ -79,7 +79,7 @@
     },
     {
       "d": "23/07",
-      "spend": 12.59,
+      "spend": 12.76,
       "sales": 0,
       "rev": 0
     }
@@ -113,8 +113,8 @@
   ],
   "hotmartNetFactor": 0.85,
   "funnel": {
-    "impressions": 40517,
-    "clicks": 1766,
+    "impressions": 40693,
+    "clicks": 1780,
     "lpviews": 1297,
     "checkouts": 16,
     "sales": 1
