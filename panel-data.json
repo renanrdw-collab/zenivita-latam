@@ -1,31 +1,25 @@
 {
-  "updated": "2026-07-26 19:56 (BRT)",
+  "updated": "2026-07-27 11:21 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
-    "usdRate": 0.1969
+    "usdRate": 0.1966
   },
   "month": {
     "label": "Julho/2026",
-    "daysElapsed": 26,
+    "daysElapsed": 27,
     "daysTotal": 31
   },
   "daily": [
     {
-      "d": "12/07",
-      "spend": 7.17,
-      "sales": 0,
-      "rev": 0
-    },
-    {
       "d": "13/07",
-      "spend": 10.04,
+      "spend": 10.02,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "14/07",
-      "spend": 7.41,
+      "spend": 7.4,
       "sales": 0,
       "rev": 0
     },
@@ -55,31 +49,31 @@
     },
     {
       "d": "19/07",
-      "spend": 6.29,
+      "spend": 6.28,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "20/07",
-      "spend": 10.15,
+      "spend": 10.13,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "21/07",
-      "spend": 2.75,
+      "spend": 2.74,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "23/07",
-      "spend": 12.78,
+      "spend": 12.77,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "24/07",
-      "spend": 16.87,
+      "spend": 16.84,
       "sales": 0,
       "rev": 0
     },
@@ -119,10 +113,10 @@
   ],
   "hotmartNetFactor": 0.85,
   "funnel": {
-    "impressions": 62102,
-    "clicks": 2734,
-    "lpviews": 1905,
-    "checkouts": 12,
+    "impressions": 61786,
+    "clicks": 2721,
+    "lpviews": 1902,
+    "checkouts": 9,
     "sales": 1
   },
   "goals": {
