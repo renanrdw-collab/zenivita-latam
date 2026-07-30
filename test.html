@@ -193,10 +193,19 @@ document.getElementById('leadform').addEventListener('submit', function(e){
     +'<div style="font-family:Georgia,serif;font-size:26px;color:#173d2e;font-weight:bold;" id="zvTimer">15:00</div>'
     +'</div>'
     +'<a class="btn" href="'+R.link+'">'+R.cta+' →</a><p style="margin-top:10px; font-size:13px;">'+(R.precio||'Solo US$9')+' · Garantía de 7 días<br><span style="font-size:12px;color:#8a857f;">💳 Paga con OXXO 🇲🇽 · Nequi/PSE 🇨🇴 · Yape 🇵🇪 · tarjeta o PayPal</span></p></div>'
-    +'<div style="background:#EDF3EA;border:1.5px solid #C9DFC9;border-radius:14px;padding:16px 18px;margin-top:14px;text-align:center;">'
-    +'<div style="font-size:15px;color:#173d2e;"><b>🌿 ¿Prefieres empezar gratis?</b></div>'
-    +'<div style="font-size:14px;color:#55534f;margin:5px 0 10px;">Haz tu <b>Ritual de 7 Días</b> personalizado para tu resultado — 2 micro-acciones al día, con Sofía.</div>'
-    +'<a href="ritual.html?r='+r+'&q=1" style="display:inline-block;background:#173d2e;color:#fff;font-weight:bold;font-size:15px;padding:12px 28px;border-radius:999px;text-decoration:none;">Empezar mi Ritual gratis →</a></div>';
+    +'<p style="margin-top:22px;text-align:center;font-size:13px;color:#9a958f;line-height:1.6;">'
+    +'¿Prefieres ir muy despacio? También puedes <a href="ritual.html?r='+r+'&q=1" id="zvRitual" style="color:#9a958f;text-decoration:underline;">empezar con el Ritual gratuito de 7 días</a>.</p>';
+  /* Click no CTA pago do resultado — mede resultado→oferta */
+  try{
+    var zvBtn=el.querySelector('a.btn');
+    if(zvBtn){zvBtn.addEventListener('click',function(){
+      try{fbq('trackCustom','OfferClick',{resultado:r,destino:R.link});}catch(_){}
+    });}
+    var zvFree=el.querySelector('#zvRitual');
+    if(zvFree){zvFree.addEventListener('click',function(){
+      try{fbq('trackCustom','FreePathClick',{resultado:r});}catch(_){}
+    });}
+  }catch(_){}
   try{
     var zvEnd=Date.now()+15*60*1000;
     var zvInt=setInterval(function(){
