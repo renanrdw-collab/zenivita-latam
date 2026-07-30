@@ -113,8 +113,20 @@ var PREGUNTAS = [
   {t:"Si pudieras resolver UNA cosa este mes, sería…",
    o:[["Deshinchar mi abdomen y digerir bien","D"],["Dormir profundo y despertar renovada","S"],["Equilibrar mis hormonas y mi ciclo","H"],["Sentir calma y paz mental","C"],["Recuperar mi energía y vitalidad","E"]]},
   {t:"¿Hace cuánto te sientes así?",
-   o:[["Semanas — y empeora con ciertas comidas","D"],["Meses — el mal sueño ya es rutina","S"],["Va y viene con mi ciclo hace tiempo","H"],["Desde que el estrés tomó el control","C"],["Tanto tiempo que ya me parece normal","E"]]}
+   o:[["Semanas — y empeora con ciertas comidas","D"],["Meses — el mal sueño ya es rutina","S"],["Va y viene con mi ciclo hace tiempo","H"],["Desde que el estrés tomó el control","C"],["Tanto tiempo que ya me parece normal","E"]]},
+  /* Pergunta de MOMENTO DE VIDA — não pontua no resultado (seg:true).
+     Gera o dado próprio de segmentação: quantas leads são cuidadoras,
+     mães de adolescentes, etc. Base para decidir qual linha abrir (Fase 1/2). */
+  {t:"Última — ¿qué describe mejor tu momento de vida ahora?", seg:true,
+   o:[["Acompaño a mi mamá o a mi papá en su día a día","CUID"],
+      ["Tengo hijos pequeños en casa","NINOS"],
+      ["Tengo hijos adolescentes","ADOL"],
+      ["Estoy en una etapa de cambios en mi ciclo","CICLO"],
+      ["Ninguna de estas — este momento es solo para mí","SOLO"]]}
 ];
+
+var MOMENTO_NOM={CUID:"Cuidadora",NINOS:"Ninos pequenos",ADOL:"Hijos adolescentes",
+                 CICLO:"Cambios de ciclo",SOLO:"Solo para mi"};
 
 var RESULTADOS = {
   D:{tag:"Sistema Digestivo", titulo:"Tu intestino está pidiendo ayuda 🌿",
@@ -139,7 +151,7 @@ var RESULTADOS = {
      cta:"Protocolo 30 Días Zenivita — Renovación Femenina Completa", link:"https://zenivita.online/oferta-30dias.html", precio:"US$27 · 30 días"}
 };
 
-var puntos={D:0,S:0,H:0,C:0,E:0}, idx=0;
+var puntos={D:0,S:0,H:0,C:0,E:0}, idx=0, momento='';
 
 function render(){
   var q=PREGUNTAS[idx];
@@ -149,7 +161,9 @@ function render(){
   var box=document.getElementById('opts'); box.innerHTML='';
   q.o.forEach(function(par){
     var b=document.createElement('button'); b.className='opt'; b.textContent=par[0];
-    b.onclick=function(){ puntos[par[1]]++; idx++;
+    b.onclick=function(){
+      if(q.seg){ momento=par[1]; } else { puntos[par[1]]++; }
+      idx++;
       if(idx<PREGUNTAS.length){render();} else {
         document.getElementById('quiz').classList.add('hidden');
         document.getElementById('capture').classList.remove('hidden');
@@ -173,13 +187,14 @@ document.getElementById('leadform').addEventListener('submit', function(e){
     var fd=new FormData();
     fd.append('NOME',nombre); fd.append('EMAIL',email); fd.append('email_address_check',''); fd.append('locale','es');
     fd.append('RESULTADO',R.tag); fd.append('RESULTADO_COD',r);
+    fd.append('MOMENTO',MOMENTO_NOM[momento]||''); fd.append('MOMENTO_COD',momento||'');
     fetch(BREVO_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
   }
   /* Pixel: Lead SIEMPRE dispara (con eventID p/ dedupe) + evento backup */
   try{
     var eid='lead_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);
-    fbq('track','Lead',{content_name:'quiz_zenivita',content_category:R.tag},{eventID:eid});
-    fbq('trackCustom','QuizComplete',{resultado:r});
+    fbq('track','Lead',{content_name:'quiz_zenivita',content_category:R.tag,momento:momento},{eventID:eid});
+    fbq('trackCustom','QuizComplete',{resultado:r,momento:momento});
   }catch(_){ }
   var el=document.getElementById('result');
   el.innerHTML='<span class="result-tag">'+R.tag+'</span>'
