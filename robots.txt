@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /gracias.html
+Disallow: /gracias-aroma.html
+Disallow: /gracias-tes.html
+Disallow: /gracias-cuerpo.html
+Disallow: /oferta-30dias.html
+Disallow: /panel-zv.html
+Disallow: /guias/
+
+Sitemap: https://zenivita.online/sitemap.xml
