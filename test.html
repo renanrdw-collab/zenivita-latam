@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Test Zenivita — ¿Qué sistema de tu cuerpo está pidiendo ayuda?</title>
-<meta name="description" content="Test gratuito de 2 minutos: descubre qué sistema de tu cuerpo está pidiendo ayuda y recibe tu mini-diagnóstico personalizado.">
+<meta name="description" content="Test gratuito de 2 minutos: descubre qué sistema de tu cuerpo está pidiendo ayuda y recibe tu perfil de bienestar personalizado.">
 <!-- Meta Pixel (base — carga temprana en head) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -53,7 +53,7 @@ fbq('init','1298126082381332');fbq('track','PageView');
   <header>
     <div class="brand">🌿 Zenivita</div>
     <h1>¿Qué sistema de tu cuerpo está pidiendo ayuda?</h1>
-    <p class="sub">Responde 8 preguntas rápidas y descubre por dónde empezar a sentirte bien otra vez — con un mini-diagnóstico hecho para ti.</p>
+    <p class="sub">Responde 8 preguntas rápidas y descubre por dónde empezar a sentirte bien otra vez — con un perfil de bienestar personalizado, hecho para ti.</p>
     <span class="badge">Test gratuito · 2 minutos</span>
   </header>
 
@@ -68,7 +68,7 @@ fbq('init','1298126082381332');fbq('track','PageView');
   <!-- CAPTURA DE EMAIL -->
   <div class="card hidden" id="capture">
     <div class="qnum">✨ Tu resultado está listo</div>
-    <div class="qtext">¿A dónde te enviamos tu mini-diagnóstico personalizado?</div>
+    <div class="qtext">¿A dónde te enviamos tu perfil de bienestar personalizado?</div>
     <p style="color:#6b6b6b; font-size:15px; margin-bottom:16px;">Además del resultado, Sofía te enviará los 3 primeros pasos para empezar hoy mismo (gratis).</p>
     <form id="leadform">
       <input type="text" id="nombre" placeholder="Tu nombre" required>
@@ -130,23 +130,23 @@ var MOMENTO_NOM={CUID:"Cuidadora",NINOS:"Ninos pequenos",ADOL:"Hijos adolescente
 
 var RESULTADOS = {
   D:{tag:"Sistema Digestivo", titulo:"Tu intestino está pidiendo ayuda 🌿",
-     diag:"Tus respuestas apuntan a un sistema digestivo sobrecargado: hinchazón, pesadez y esa sensación de que \"nada cae bien\". No es normal vivir así — y no es falta de fuerza de voluntad: es tu microbiota pidiendo un reinicio. La buena noticia: el intestino responde rápido cuando recibe lo que necesita.",
+     diag:"Tus respuestas apuntan a un sistema digestivo sobrecargado: hinchazón, pesadez y esa sensación de que \"nada cae bien\". No tienes por qué acostumbrarte a vivir así — y no es falta de fuerza de voluntad: la digestión responde a lo que comes, a cómo lo comes y al ritmo de tu día. Ahí está tu punto de partida, un paso a la vez.",
      acciones:["Empieza mañana con un vaso de agua tibia con limón en ayunas","Mastica cada bocado al menos 15 veces — la digestión empieza en la boca","Esta noche, cena ligero y deja 3 horas antes de acostarte"],
-     cta:"Protocolo Intestino Ligero — 10 días para deshinchar tu abdomen", link:"https://zenivita.online/intestino.html", precio:"Solo US$9"},
+     cta:"Protocolo Intestino Ligero — 10 días de guías para cuidar tu digestión", link:"https://zenivita.online/intestino.html", precio:"Solo US$9"},
   S:{tag:"Sueño", titulo:"Tu sueño está pidiendo ayuda 🌙",
-     diag:"Tus respuestas muestran que tu descanso dejó de reparar: te cuesta dormir, te despiertas de madrugada o amaneces tan cansada como te acostaste. El sueño es la base de todo — hormonas, peso, ánimo y energía dependen de él. Recuperarlo no es cuestión de suerte: es cuestión de método.",
+     diag:"Tus respuestas apuntan al descanso: te cuesta dormir, te despiertas de madrugada o amaneces tan cansada como te acostaste. El sueño toca todo lo demás — ánimo, energía y ganas. Cuidarlo no es cuestión de suerte: empieza por las señales que le das a tu cuerpo cada mañana y cada noche.",
      acciones:["Hoy: saca el celular del dormitorio (usa un despertador simple)","Toma 10 minutos de luz natural apenas despiertes mañana","Cena al menos 3 horas antes de dormir, sin pantallas en la última hora"],
      cta:"Guía Sueño Reparador — empieza esta misma noche", link:"https://zenivita.online/sueno.html", precio:"Solo US$9"},
-  H:{tag:"Hormonas", titulo:"Tus hormonas están pidiendo equilibrio 🌸",
-     diag:"Tus respuestas apuntan a un desequilibrio hormonal: emociones en montaña rusa, antojos, síntomas que van y vienen con tu ciclo. No estás \"exagerando\" — tu química interna está hablando. Y cuando aprendes a escucharla, todo cambia: ánimo, piel, sueño y energía.",
+  H:{tag:"Hormonas", titulo:"Tu ciclo pide atención 🌸",
+     diag:"Tus respuestas apuntan a que el ciclo es tu punto de partida: emociones que suben y bajan, antojos y molestias que van y vienen con el mes. No estás \"exagerando\" — tu cuerpo está hablando y vale la pena escucharlo con calma. Esto no es un diagnóstico: es un lugar por donde empezar a observarte. Si los síntomas persisten o te limitan el día a día, consulta a tu médico.",
      acciones:["Anota hoy en qué día de tu ciclo estás — el conocimiento es el primer paso","Agrega una porción de grasas buenas hoy (aguacate, nueces, aceite de oliva)","Reduce el azúcar refinada esta semana y observa tu ánimo"],
      cta:"Protocolo 30 Días Zenivita — Renovación Femenina Completa", link:"https://zenivita.online/oferta-30dias.html", precio:"US$27 · 30 días"},
   C:{tag:"Sistema Nervioso", titulo:"Tu sistema nervioso está pidiendo calma 🕊️",
-     diag:"Tus respuestas muestran un sistema nervioso en modo alerta constante: mente que no se apaga, tensión, ansiedad. Vivir acelerada no es tu personalidad — es un estado del cuerpo. Y los estados se pueden regular, con práctica y con las herramientas correctas.",
+     diag:"Tus respuestas apuntan a un sistema nervioso en modo alerta: mente que no se apaga, tensión, sensación de ansiedad. Vivir acelerada no es tu personalidad — es un estado del cuerpo. Y un estado se acompaña con práctica: respiración, pausas y límites. Tu primer paso cabe en dos minutos.",
      acciones:["Ahora mismo: respira 4-7-8 (inhala 4s, sostén 7s, exhala 8s) × 4 veces","Hoy, 10 minutos de caminata sin celular ni audífonos","Antes de dormir: escribe 3 cosas por las que agradeces hoy"],
      cta:"Protocolo 30 Días Zenivita — incluye el pilar de calma y equilibrio", link:"https://zenivita.online/oferta-30dias.html", precio:"US$27 · 30 días"},
   E:{tag:"Energía", titulo:"Tu energía está pidiendo un reinicio ⚡",
-     diag:"Tus respuestas apuntan a una fatiga que va más allá del cansancio normal: duermes y no recargas, el día pesa desde temprano. La energía no se \"fuerza\" con café — se construye con nutrición, descanso y ritmo. Tu vitalidad de antes no se perdió: está esperando las condiciones para volver.",
+     diag:"Tus respuestas apuntan a un cansancio que va más allá de un día pesado: duermes y no recargas, la mañana ya llega con peso. La energía no se \"fuerza\" con café — se apoya en nutrición, descanso y ritmo. Ahí está tu punto de partida: agua, proteína en el desayuno y luz de la mañana.",
      acciones:["Hoy: toma 2 litros de agua (la fatiga y la deshidratación van juntas)","Agrega proteína a tu desayuno de mañana","Camina 15 minutos al sol antes del mediodía"],
      cta:"Protocolo 30 Días Zenivita — Renovación Femenina Completa", link:"https://zenivita.online/oferta-30dias.html", precio:"US$27 · 30 días"}
 };
@@ -201,13 +201,14 @@ document.getElementById('leadform').addEventListener('submit', function(e){
     +'<h2>'+R.titulo+'</h2>'
     +'<p><b>'+nombre+'</b>, '+R.diag+'</p>'
     +'<div class="acciones"><h3>✅ Tus 3 primeros pasos (empieza hoy):</h3><ol><li>'+R.acciones[0]+'</li><li>'+R.acciones[1]+'</li><li>'+R.acciones[2]+'</li></ol></div>'
+    +'<p style="font-size:13px;color:#8a857f;line-height:1.6;">Este perfil es orientativo y educativo: no es un diagnóstico y no sustituye orientación médica. Si los síntomas persisten o algo te preocupa, consulta a tu médico.</p>'
     +'<div class="cta-box"><p>Tu siguiente paso, hecho para tu resultado:</p>'
     +'<div id="zvFlash" style="background:#FFF7EC;border:2px dashed #C1934E;border-radius:14px;padding:14px 16px;margin:0 0 14px;">'
     +'<div style="font-size:14px;font-weight:bold;color:#8a5a1f;letter-spacing:1px;text-transform:uppercase;">🎁 Bono por decisión</div>'
     +'<div style="font-size:15px;color:#4a4744;margin:6px 0;">Empieza en los próximos <b>15 minutos</b> y llévate de regalo el <b>Recetario Rápido Zenivita</b> (para imprimir).</div>'
     +'<div style="font-family:Georgia,serif;font-size:26px;color:#173d2e;font-weight:bold;" id="zvTimer">15:00</div>'
     +'</div>'
-    +'<a class="btn" href="'+R.link+'">'+R.cta+' →</a><p style="margin-top:10px; font-size:13px;">'+(R.precio||'Solo US$9')+' · Garantía de 7 días<br><span style="font-size:12px;color:#8a857f;">💳 Paga con OXXO 🇲🇽 · Nequi/PSE 🇨🇴 · Yape 🇵🇪 · tarjeta o PayPal</span></p></div>'
+    +'<a class="btn" href="'+R.link+'">'+R.cta+' →</a><p style="margin-top:10px; font-size:13px;">'+(R.precio||'Solo US$9')+' · Garantía de 7 días: si no es para ti, escríbenos a zenivitabr@gmail.com dentro de los 7 días y te devolvemos tu dinero.<br><span style="font-size:12px;color:#8a857f;">💳 Paga con OXXO 🇲🇽 · Nequi/PSE 🇨🇴 · Yape 🇵🇪 · tarjeta o PayPal</span></p></div>'
     +'<p style="margin-top:22px;text-align:center;font-size:13px;color:#9a958f;line-height:1.6;">'
     +'¿Prefieres ir muy despacio? También puedes <a href="ritual.html?r='+r+'&q=1" id="zvRitual" style="color:#9a958f;text-decoration:underline;">empezar con el Ritual gratuito de 7 días</a>.</p>';
   /* Click no CTA pago do resultado — mede resultado→oferta */

@@ -130,7 +130,7 @@
 
   <!-- ONBOARDING -->
   <div id="onboard" class="ob-card">
-    <h2>¿Qué quieres transformar esta semana?</h2>
+    <h2>¿Qué quieres cuidar esta semana?</h2>
     <p class="hint">Elige tu camino — cada ritual es diferente 👇</p>
     <div class="tracks" id="trackList"></div>
     <div class="field">
@@ -192,59 +192,59 @@
 /* ================= DATA ================= */
 var TRACKS = {
  D:{nm:"Ritual Vientre Ligero",em:"🍋",ds:"Hinchazón, digestión pesada",days:[
-  {m:"Un vaso de agua tibia con limón al despertar, antes del café.",n:"Infusión de manzanilla + anís después de cenar, tapada 5-7 min.",s:"El agua tibia en ayunas estimula la motilidad intestinal — tu sistema digestivo despierta contigo."},
-  {m:"Desayuna sin pantallas y mastica cada bocado 15-20 veces.",n:"Masaje abdominal 2 min en sentido del reloj, con las manos tibias.",s:"La digestión empieza en la boca: masticar bien reduce la carga del estómago y la hinchazón de la tarde."},
-  {m:"Agrega una fruta con fibra al desayuno: papaya, kiwi o pera.",n:"Infusión de menta después de tu comida más pesada.",s:"<b>Ciencia:</b> el aceite de menta mostró alivio significativo del intestino irritable en ensayos clínicos (Alammar 2019, BMC)."},
-  {m:"Camina 10 minutos después de almorzar.",n:"Cena al menos 3 horas antes de acostarte esta noche.",s:"Caminar tras comer acelera el vaciado gástrico y estabiliza la glucosa — digestión más ligera, sueño más profundo."},
-  {m:"Hoy sin bebidas con gas ni chicle (aire tragado = vientre inflado).",n:"Infusión de jengibre: hierve 3-4 rodajas 8 min, agrega limón.",s:"La aerofagia (aire que tragamos) es causa directa de distensión. Un día sin gas se nota."},
-  {m:"Suma un fermentado al desayuno: yogur natural o kéfir.",n:"Piernas contra la pared 5 min + respiración abdominal lenta.",s:"Los fermentados aportan probióticos que equilibran tu microbiota — tu 'segundo cerebro' te lo agradece."},
-  {m:"Repite tu ritual favorito de la semana. Ya es tuyo.",n:"Escribe cómo se siente tu abdomen hoy vs el día 1.",s:"7 días de señales constantes son suficientes para que el sistema digestivo empiece a regularse. Esto recién comienza."}]},
+  {m:"Un vaso de agua tibia con limón al despertar, antes del café.",n:"Infusión de manzanilla + anís después de cenar, tapada 5-7 min.",s:"El vaso de agua tibia en ayunas es una señal de arranque suave — tu sistema digestivo despierta contigo."},
+  {m:"Desayuna sin pantallas y mastica cada bocado 15-20 veces.",n:"Masaje abdominal 2 min en sentido del reloj, con las manos tibias.",s:"La digestión empieza en la boca: masticar con calma aligera el trabajo que le dejas al estómago."},
+  {m:"Agrega una fruta con fibra al desayuno: papaya, kiwi o pera.",n:"Infusión de menta después de tu comida más pesada.",s:"<b>Ciencia:</b> el aceite de menta ha sido estudiado en ensayos clínicos en relación con las molestias del intestino irritable (Alammar 2019, BMC). Si tienes un diagnóstico, esto acompaña tu día — no sustituye tu tratamiento médico."},
+  {m:"Camina 10 minutos después de almorzar.",n:"Cena al menos 3 horas antes de acostarte esta noche.",s:"Caminar después de comer se asocia a un vaciado gástrico más ágil y a una glucemia más estable."},
+  {m:"Hoy sin bebidas con gas ni chicle (aire tragado = vientre inflado).",n:"Infusión de jengibre: hierve 3-4 rodajas 8 min, agrega limón.",s:"La aerofagia (el aire que tragamos) es una causa frecuente de distensión. Prueba un día sin gas y observa qué pasa."},
+  {m:"Suma un fermentado al desayuno: yogur natural o kéfir.",n:"Piernas contra la pared 5 min + respiración abdominal lenta.",s:"Los fermentados aportan bacterias vivas a tu microbiota — tu 'segundo cerebro' agradece la variedad."},
+  {m:"Repite tu ritual favorito de la semana. Ya es tuyo.",n:"Escribe cómo se siente tu abdomen hoy vs el día 1.",s:"Llevas 7 días de señales constantes para tu sistema digestivo. Lo importante ahora es sostener el hábito."}]},
  S:{nm:"Ritual Noche Serena",em:"🌙",ds:"Dormir mal, despertar cansada",days:[
   {m:"Luz natural 5-10 min al despertar: ventana, balcón o calle.",n:"Pantallas fuera 30 min antes de dormir. Solo por hoy — pruébalo.",s:"La luz de la mañana ancla tu reloj biológico y adelanta la melatonina de la noche. El buen sueño empieza al despertar."},
   {m:"Tu último café antes de las 2 de la tarde.",n:"Infusión de manzanilla + tila, 45 min antes de acostarte.",s:"La cafeína tiene una vida media de ~6 horas: un café de las 5pm sigue circulando a medianoche."},
-  {m:"A media tarde: 10 respiraciones 4-6 (inhala en 4, exhala en 6).",n:"Ducha tibia 1-2 horas antes de dormir.",s:"<b>Ciencia:</b> la manzanilla mostró reducción de la ansiedad leve a moderada en estudios clínicos (Amsterdam 2009)."},
-  {m:"Prepara tu cueva: oscuridad total esta noche (o antifaz).",n:"Baja la temperatura del cuarto y acuéstate a hora fija.",s:"El descenso de la temperatura corporal es la señal biológica que dispara el sueño profundo."},
-  {m:"Hoy nada de siestas de más de 20 minutos.",n:"'Descarga mental': escribe tus 3 pendientes en papel antes de acostarte.",s:"Externalizar los pendientes reduce la rumiación — esa vocecita de las 3am pierde fuerza."},
-  {m:"Movimiento suave 15 min: caminar o estirar (no de noche).",n:"Lavanda: 2 gotas en la almohada o en el difusor.",s:"<b>Ciencia:</b> la lavanda redujo la ansiedad y el insomnio asociado en ensayos clínicos (Kasper 2014)."},
-  {m:"Despierta a la misma hora que ayer. Sí, hoy también.",n:"Ritual completo: infusión + luz baja + 1 minuto de gratitud.",s:"La regularidad de la hora de despertar es el predictor nº1 de un buen sueño. Ya tienes tu ritual."}]},
+  {m:"A media tarde: 10 respiraciones 4-6 (inhala en 4, exhala en 6).",n:"Ducha tibia 1-2 horas antes de dormir.",s:"<b>Ciencia:</b> la manzanilla ha sido estudiada en relación con la ansiedad leve a moderada en estudios clínicos (Amsterdam 2009). Acompaña tu noche; no sustituye el tratamiento médico."},
+  {m:"Prepara tu cueva: oscuridad total esta noche (o antifaz).",n:"Baja la temperatura del cuarto y acuéstate a hora fija.",s:"El descenso de la temperatura corporal es una de las señales que acompañan la llegada del sueño profundo."},
+  {m:"Hoy nada de siestas de más de 20 minutos.",n:"'Descarga mental': escribe tus 3 pendientes en papel antes de acostarte.",s:"Externalizar los pendientes suele aflojar la rumiación — esa vocecita de las 3am pierde algo de fuerza."},
+  {m:"Movimiento suave 15 min: caminar o estirar (no de noche).",n:"Lavanda: 2 gotas en la almohada o en el difusor.",s:"<b>Ciencia:</b> la lavanda ha sido estudiada en relación con la ansiedad y el insomnio asociado en ensayos clínicos (Kasper 2014). Es un apoyo para tu descanso; no sustituye el tratamiento médico."},
+  {m:"Despierta a la misma hora que ayer. Sí, hoy también.",n:"Ritual completo: infusión + luz baja + 1 minuto de gratitud.",s:"La hora fija de despertar es uno de los factores más estudiados del sueño. Ya tienes tu ritual."}]},
  H:{nm:"Ritual Equilibrio",em:"🌺",ds:"Ciclo, hormonas, cambios de ánimo",days:[
-  {m:"Desayuna proteína en la primera hora: huevo, yogur o frijoles.",n:"Infusión de salvia u hoja de frambuesa, tapada 8 min.",s:"Un desayuno con proteína estabiliza la glucosa y la insulina — la base silenciosa del equilibrio hormonal."},
-  {m:"10 minutos de sol suave (mañana o tarde).",n:"Cena con magnesio: verduras verdes, semillas o cacao puro.",s:"El magnesio participa en más de 300 reacciones del cuerpo, incluidas las hormonales. La mayoría no llega al mínimo."},
-  {m:"1 cucharada de linaza molida en el desayuno.",n:"Baño o ducha caliente + 5 minutos de calma sin celular.",s:"<b>Ciencia:</b> los lignanos de la linaza apoyan el metabolismo saludable de los estrógenos."},
-  {m:"Camina 20 minutos: el ejercicio suave regula el cortisol.",n:"¿Molestias del ciclo? Manzanilla + jengibre, tibia.",s:"<b>Ciencia:</b> el jengibre redujo el dolor menstrual en un metaanálisis, comparable a antiinflamatorios (Daily 2015, Pain Medicine)."},
-  {m:"Cambia el azúcar añadida de hoy por fruta entera.",n:"Mini-journaling: ¿cómo estuvo tu energía a lo largo del día?",s:"Los picos de glucosa amplifican los síntomas hormonales: ánimo, antojos y energía en montaña rusa."},
-  {m:"Grasas buenas hoy: aguacate, aceite de oliva o un puñado de nueces.",n:"Respiración 4-7-8 antes de dormir (inhala 4, sostén 7, exhala 8).",s:"Tus hormonas se fabrican a partir de grasas saludables. Sin materia prima no hay equilibrio."},
-  {m:"Arma tu plato ideal: proteína + fibra + grasa buena.",n:"Celebra con tu ritual de autocuidado favorito de la semana.",s:"7 días de señales estables le enseñan a tu cuerpo un ritmo nuevo. Tu ciclo lo va a notar."}]},
+  {m:"Desayuna proteína en la primera hora: huevo, yogur o frijoles.",n:"Infusión de salvia u hoja de frambuesa, tapada 8 min.",s:"Un desayuno con proteína se asocia a una glucemia más estable — una base silenciosa para el resto del día."},
+  {m:"10 minutos de sol suave (mañana o tarde).",n:"Cena con magnesio: verduras verdes, semillas o cacao puro.",s:"El magnesio participa en más de 300 reacciones del cuerpo, incluidas las hormonales."},
+  {m:"1 cucharada de linaza molida en el desayuno.",n:"Baño o ducha caliente + 5 minutos de calma sin celular.",s:"<b>Ciencia:</b> los lignanos de la linaza se han estudiado en relación con el metabolismo de los estrógenos."},
+  {m:"Camina 20 minutos: el ejercicio suave es un buen aliado frente al estrés.",n:"¿Molestias del ciclo? Manzanilla + jengibre, tibia.",s:"<b>Ciencia:</b> el jengibre ha sido estudiado en relación con el dolor menstrual en un metaanálisis (Daily 2015, Pain Medicine). Es un apoyo de bienestar; no sustituye el tratamiento que te indique tu médico."},
+  {m:"Cambia el azúcar añadida de hoy por fruta entera.",n:"Mini-journaling: ¿cómo estuvo tu energía a lo largo del día?",s:"Los picos de glucosa suelen amplificar lo que ya sientes: ánimo, antojos y energía en montaña rusa."},
+  {m:"Grasas buenas hoy: aguacate, aceite de oliva o un puñado de nueces.",n:"Respiración 4-7-8 antes de dormir (inhala 4, sostén 7, exhala 8).",s:"Varias hormonas se fabrican a partir de grasas. Darle materia prima a tu cuerpo también es cuidarte."},
+  {m:"Arma tu plato ideal: proteína + fibra + grasa buena.",n:"Celebra con tu ritual de autocuidado favorito de la semana.",s:"7 días de señales estables le proponen a tu cuerpo un ritmo nuevo. Lo que sigue es sostenerlo, a tu manera."}]},
  C:{nm:"Ritual Calma Profunda",em:"🕊️",ds:"Ansiedad, tensión, mente acelerada",days:[
   {m:"Antes de tomar el celular: 5 respiraciones profundas en la cama.",n:"Infusión de tila o melisa + luz baja 30 min antes de dormir.",s:"La exhalación larga activa el nervio vago — el freno natural de tu sistema de estrés."},
   {m:"Escribe 3 cosas que SÍ están bajo tu control hoy.",n:"Estira cuello y hombros 5 minutos, despacio.",s:"El estrés crónico se acumula como tensión en cuello, hombros y mandíbula. Soltarlo también es mental."},
   {m:"Camina 10 min sin audífonos. Solo mira, escucha, respira.",n:"Bergamota o lavanda (diluida) en las muñecas + 3 respiraciones.",s:"<b>Ciencia:</b> los aromas llegan directo al sistema límbico — la sede de tus emociones — sin pasar por la mente racional."},
-  {m:"Pon una alarma de 'pausa' a media tarde: 2 min de respiración 4-6.",n:"Ducha consciente: siente el agua, sin planear el mañana.",s:"Las micro-pausas cortan la acumulación de cortisol antes de que llegue a la noche."},
-  {m:"Mono-tarea: 1 hora haciendo UNA sola cosa a la vez.",n:"'Descarga mental' en papel + manzanilla.",s:"El multitasking dispara el estrés percibido. La mono-tarea es un ansiolítico gratis."},
+  {m:"Pon una alarma de 'pausa' a media tarde: 2 min de respiración 4-6.",n:"Ducha consciente: siente el agua, sin planear el mañana.",s:"Las micro-pausas ayudan a interrumpir la tensión acumulada antes de que llegue a la noche."},
+  {m:"Mono-tarea: 1 hora haciendo UNA sola cosa a la vez.",n:"'Descarga mental' en papel + manzanilla.",s:"El multitasking dispara el estrés percibido. La mono-tarea es una de las pausas más baratas que existen."},
   {m:"Di 'no' a una cosa pequeña hoy. Tu energía es tuya.",n:"10 minutos solo para ti: música calma + tu infusión.",s:"Cada 'sí' automático es energía que sale. Los límites también son autocuidado."},
-  {m:"Repite tu pausa favorita de la semana.",n:"Cierre: escribe 3 cosas buenas de estos 7 días.",s:"La gratitud entrena a tu cerebro a buscar lo bueno — y baja la reactividad al estrés. Ya tienes herramientas."}]},
+  {m:"Repite tu pausa favorita de la semana.",n:"Cierre: escribe 3 cosas buenas de estos 7 días.",s:"La gratitud entrena la mirada hacia lo bueno y se ha estudiado en relación con una menor reactividad al estrés. Ya tienes herramientas."}]},
  E:{nm:"Ritual Energía Viva",em:"⚡",ds:"Cansancio, agotamiento, sin fuerzas",days:[
-  {m:"Agua antes que café: un vaso grande al despertar.",n:"Acuéstate 30 minutos antes que ayer. Solo hoy — mira qué pasa.",s:"La causa más común de fatiga es la más simple: deshidratación leve + deuda de sueño acumulada."},
+  {m:"Agua antes que café: un vaso grande al despertar.",n:"Acuéstate 30 minutos antes que ayer. Solo hoy — mira qué pasa.",s:"Dos causas frecuentes de fatiga son también de las más simples: deshidratación leve + deuda de sueño acumulada."},
   {m:"Luz + movimiento: 5 min de estiramiento cerca de una ventana.",n:"Cena ligera y nada de pantallas en la cama.",s:"Luz y movimiento matinales le dicen a tu cuerpo 'es de día': la energía sigue a esa señal."},
-  {m:"Té verde a media mañana en vez del segundo café.",n:"Piernas contra la pared 5 minutos al final del día.",s:"<b>Ciencia:</b> la L-teanina del té verde + su cafeína suave mejoran la atención sin nerviosismo (Camfield 2014)."},
-  {m:"Difusor o inhalación de naranja + romero 10 min al empezar el día.",n:"Snack de la tarde con proteína (no galletas): yogur, huevo, nueces.",s:"<b>Ciencia:</b> el romero mejoró memoria y alerta en un estudio con 144 adultos (Moss 2003)."},
-  {m:"15 minutos de caminata rápida, donde sea.",n:"Magnesio en la cena: verduras verdes, semillas, legumbres.",s:"El movimiento genera energía — la fatiga por sedentarismo se cura moviéndose, no descansando más."},
+  {m:"Té verde a media mañana en vez del segundo café.",n:"Piernas contra la pared 5 minutos al final del día.",s:"<b>Ciencia:</b> la L-teanina del té verde junto a su cafeína suave se ha estudiado en relación con la atención (Camfield 2014)."},
+  {m:"Difusor o inhalación de naranja + romero 10 min al empezar el día.",n:"Snack de la tarde con proteína (no galletas): yogur, huevo, nueces.",s:"<b>Ciencia:</b> el aroma de romero se ha estudiado en relación con la memoria y el estado de alerta (Moss 2003, 144 adultos)."},
+  {m:"15 minutos de caminata rápida, donde sea.",n:"Magnesio en la cena: verduras verdes, semillas, legumbres.",s:"El cuerpo pide movimiento: la fatiga por sedentarismo suele responder mejor al movimiento que al reposo."},
   {m:"Detecta tu 'ladrón de energía' nº1 (¿pantalla nocturna? ¿azúcar?) y ajústalo hoy.",n:"Rooibos frío o tibio por la tarde-noche: hidrata sin cafeína.",s:"La energía no se crea: se deja de fugar. Un ladrón detectado vale más que dos cafés."},
-  {m:"Tu mañana ideal completa: agua + luz + movimiento + proteína.",n:"Compara tu energía de hoy con la del día 1. Escríbelo.",s:"Acabas de construir la mañana que te sostiene. Repítela y será automática."}]}
+  {m:"Tu mañana ideal completa: agua + luz + movimiento + proteína.",n:"Compara tu energía de hoy con la del día 1. Escríbelo.",s:"Acabas de armar tu mañana completa. Repítela a tu ritmo — ahí está el valor."}]}
 };
 var OFFERS = {
- D:{t:"Protocolo Intestino Ligero",p:"US$9",u:"intestino.html",d:"10 días para deshinchar tu abdomen — el paso completo después de tu ritual."},
- S:{t:"Guía Sueño Reparador",p:"US$9",u:"sueno.html",d:"El método completo para dormir profundo — tu ritual fue solo el comienzo."},
- H:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 días para equilibrar hormonas, ciclo y energía — el siguiente nivel de tu ritual."},
- C:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 días para salir del modo alerta y recuperar tu calma — el siguiente nivel de tu ritual."},
- E:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 días para reconstruir tu vitalidad desde la raíz — el siguiente nivel de tu ritual."}
+ D:{t:"Protocolo Intestino Ligero",p:"US$9",u:"intestino.html",d:"10 días de guías, menús y rutinas para cuidar tu digestión — el paso completo después de tu ritual."},
+ S:{t:"Guía Sueño Reparador",p:"US$9",u:"sueno.html",d:"La guía completa para cuidar tu descanso, noche a noche — tu ritual fue solo el comienzo."},
+ H:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 guías diarias sobre ciclo, hormonas y energía — el siguiente nivel de tu ritual."},
+ C:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 guías diarias para cultivar la calma, paso a paso — el siguiente nivel de tu ritual."},
+ E:{t:"Protocolo 30 Días · Renovación Femenina",p:"US$27",u:"oferta-30dias.html",d:"30 guías diarias para cuidar tu energía desde la base — el siguiente nivel de tu ritual."}
 };
 var SOFIA = [
  "Hoy no cambiamos tu vida entera. Empezamos por algo pequeño — así se construyen los rituales que sí duran. 💛",
  "El día 2 es donde la mayoría abandona. Tú no. Dos micro-acciones y listo.",
- "Tres días seguidos cambian más que un mes de intentos sueltos. Hoy toca ciencia — mira el porqué de tu ritual. 🔬",
+ "La constancia pesa más que la intensidad. Hoy toca ciencia — mira el porqué de tu ritual. 🔬",
  "Ya pasaste la mitad más difícil. Tu cuerpo empieza a esperar estas señales.",
- "Día 5: esto ya casi es un hábito. ¿Notas algo diferente? Yo aposto que sí. 🌿",
+ "Día 5: esto ya casi es un hábito. ¿Notas algo diferente? Cuéntamelo. 🌿",
  "Penúltimo día. Lo que estás construyendo no es una semana — es una nueva forma de tratarte.",
  "Último día, querida. Termina fuerte: hoy celebramos. 👑"
 ];
@@ -386,8 +386,8 @@ function renderFin(){
     var o=OFFERS[S_.code];
     box.classList.remove('hidden');
     var sh='https://wa.me/?text='+encodeURIComponent('🔥 Completé Mi Ritual de 7 Días de Zenivita ('+TRACKS[S_.code].nm+') 🌿 Haz el tuyo gratis: https://zenivita.online/ritual.html');
-    box.innerHTML='<div class="fin"><div class="crown">👑</div><h3>¡Lo lograste, '+S_.name+'!</h3><p>7 de 7. La mayoría no llega ni al día 3 — tú terminaste. Este ritual ya es tuyo para siempre.</p><a class="share" href="'+sh+'" target="_blank" rel="noopener">📲 Compartir mi logro</a></div>'+
-    '<div class="offer"><span class="tag">🎁 Regalo de graduación</span><h3>'+o.t+'</h3><p>Terminaste tu ritual — este es el paso completo. Y por completar los 7 días, el Recetario Rápido va de regalo con tu compra.</p><a href="'+o.u+'?utm_source=ritual&utm_medium=app&utm_campaign=graduada">Continuar mi transformación · '+o.p+' →</a><div class="pp">Garantía 7 días · OXXO, Nequi, Yape, tarjeta o PayPal</div></div>';
+    box.innerHTML='<div class="fin"><div class="crown">👑</div><h3>¡Lo lograste, '+S_.name+'!</h3><p>7 de 7. Terminaste lo que empezaste. Este ritual ya es tuyo para siempre.</p><a class="share" href="'+sh+'" target="_blank" rel="noopener">📲 Compartir mi logro</a></div>'+
+    '<div class="offer"><span class="tag">🎁 Regalo de graduación</span><h3>'+o.t+'</h3><p>Terminaste tu ritual — este es el paso completo. Y por completar los 7 días, el Recetario Rápido va de regalo con tu compra.</p><a href="'+o.u+'?utm_source=ritual&utm_medium=app&utm_campaign=graduada">Continuar con el protocolo completo · '+o.p+' →</a><div class="pp">Garantía 7 días · OXXO, Nequi, Yape, tarjeta o PayPal</div></div>';
   } else box.classList.add('hidden');
 }
 
