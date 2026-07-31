@@ -1,0 +1,8 @@
+# Ebooks pagos NUNCA no repositorio publico.
+# A entrega acontece pela area protegida do Hotmart.
+guias/*.pdf
+!guias/Guia-5-Causas-Cansancio.pdf
+
+# Scratch
+*.bak
+.DS_Store
