@@ -113,7 +113,19 @@ n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1298126082381332');fbq('track','PageView');
-fbq('track','Purchase',{value:12.00,currency:'USD',content_name:'Tes e Infusiones'});
+function zvPurchase(o){try{
+  var q=new URLSearchParams(location.search);
+  var tx=q.get('transaction')||q.get('trans')||q.get('tid')||'';
+  var slug=(o.content_name||'zv').replace(/[^A-Za-z0-9]/g,'').toLowerCase();
+  var key='zvpur_'+slug+'_'+(tx||'notx');
+  var store=tx?window.localStorage:window.sessionStorage;
+  if(store.getItem(key)){return;}
+  store.setItem(key,'1');
+  fbq('track','Purchase',o,{eventID:tx?('pur_'+tx):('pur_'+slug+'_'+key.length+'_'+(store.length))});
+}catch(_){fbq('track','Purchase',o);}}
+zvPurchase({value:12.00,currency:'USD',content_name:'Tes e Infusiones'});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="pay.hotmart.com"]');if(!a)return;try{var h=a.getAttribute('href')||'';var nom='Coleccion Completa',val=57.00;if(h.indexOf('K106813649H')>-1){nom='Aromaterapia Esencial';val=12.00;}else if(h.indexOf('D106813694T')>-1){nom='Tes e Infusiones';val=12.00;}fbq('track','InitiateCheckout',{content_name:nom,content_category:'upsell',value:val,currency:'USD'});}catch(_){}},true);
+
 </script>
 </body>
 </html>

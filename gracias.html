@@ -18,6 +18,14 @@ p{font-size:.98rem;color:#55635b;margin-bottom:12px}
 .mini{font-size:.85rem;color:#84907f}
 a{color:var(--dourado);font-weight:700}
 .logo{font-size:1rem;font-weight:800;letter-spacing:.18em;color:var(--verde);margin-top:22px}
+.upsell{margin:26px 0 4px;padding:22px 20px;background:linear-gradient(160deg,#1E5638,#2E7D52);border-radius:16px;color:#fff;text-align:left}
+.upsell h2{font-size:1.12rem;color:#fff;margin-bottom:8px;line-height:1.3}
+.upsell p{color:rgba(255,255,255,.9);font-size:.93rem;margin-bottom:10px}
+.upl{list-style:none;margin:0 0 16px;padding:0}
+.upl li{font-size:.9rem;color:rgba(255,255,255,.92);padding:4px 0 4px 20px;position:relative}
+.upl li::before{content:"✓";position:absolute;left:0;color:var(--douradoclaro);font-weight:700}
+.upbtn{display:block;text-align:center;background:var(--douradoclaro);color:#22352b !important;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:999px;font-size:1rem}
+.upsell .mini{color:rgba(255,255,255,.72);margin:0}
 </style>
 </head>
 <body>
@@ -33,6 +41,15 @@ a{color:var(--dourado);font-weight:700}
  </div>
  <p class="mini">¿No encuentras el correo en 10 minutos? Escríbenos: <a href="mailto:zenivitabr@gmail.com">zenivitabr@gmail.com</a></p>
  <p class="mini">Tu compra tiene 7 días de garantía. Si no es para ti, escribe a <a href="mailto:zenivitabr@gmail.com">zenivitabr@gmail.com</a> y te devolvemos el 100%.</p>
+
+ <div id="zvUp" class="upsell" style="display:none">
+  <h2 id="zvUpH"></h2>
+  <p id="zvUpP"></p>
+  <ul id="zvUpL" class="upl"></ul>
+  <a id="zvUpA" class="upbtn" href="#"></a>
+  <p class="mini" style="margin-top:10px">Pago único · Garantía de 7 días · Acceso inmediato por Hotmart</p>
+ </div>
+
  <div class="logo">ZENIVITA</div>
  <p class="mini" style="margin-top:14px;">Zenivita · Bienestar femenino natural. Contenido educativo y de bienestar; no sustituye orientación médica ni la orientación de un profesional de la salud. © 2026.</p>
 </div>
@@ -49,6 +66,16 @@ fbq('init','1298126082381332');fbq('track','PageView');
    Hotmart: configurar a URL de obrigado como gracias.html?p=<codigo>
    codigos: intestino | sueno | p30 | coleccion | aroma | tes | cuerpo
    Sem ?p= assume US$9 (produtos de entrada, os mais vendidos por esta pagina). */
+function zvPurchase(o){try{
+  var q=new URLSearchParams(location.search);
+  var tx=q.get('transaction')||q.get('trans')||q.get('tid')||'';
+  var slug=(o.content_name||'zv').replace(/[^A-Za-z0-9]/g,'').toLowerCase();
+  var key='zvpur_'+slug+'_'+(tx||'notx');
+  var store=tx?window.localStorage:window.sessionStorage;
+  if(store.getItem(key)){return;}
+  store.setItem(key,'1');
+  fbq('track','Purchase',o,{eventID:tx?('pur_'+tx):('pur_'+slug+'_'+key.length+'_'+(store.length))});
+}catch(_){fbq('track','Purchase',o);}}
 (function(){
   var VAL={intestino:9,sueno:9,aroma:12,tes:12,p30:27,cuerpo:47,coleccion:57};
   var NOM={intestino:'Protocolo Intestino Ligero',sueno:'Protocolo Sueno Reparador',
@@ -57,7 +84,37 @@ fbq('init','1298126082381332');fbq('track','PageView');
   var q=new URLSearchParams(location.search);
   var k=(q.get('p')||'').toLowerCase();
   var v=parseFloat(q.get('v'))||VAL[k]||9;
-  fbq('track','Purchase',{value:v,currency:'USD',content_name:NOM[k]||'Zenivita (generico)'});
+  zvPurchase({value:v,currency:'USD',content_name:NOM[k]||'Zenivita (generico)'});
+
+  /* Upsell contextual: quien ya tiene la Coleccion no recibe oferta, recibe el Ritual. */
+  var UP={
+    coleccion:{h:'Ya tienes la Colección completa 🌿',
+      p:'Tu siguiente paso no cuesta nada: el Ritual de 7 Días te acompaña noche a noche mientras aplicas lo que acabas de recibir.',
+      l:['7 noches guiadas, una por día','Registro de cómo te sientes','Funciona desde el celular, sin instalar nada'],
+      b:'Abrir mi Ritual de 7 Días →', u:'ritual.html?utm_source=gracias&utm_medium=post_compra'},
+    _def:{h:'¿Y si te llevas TODO el método Zenivita?',
+      p:'La Colección reúne los cuatro protocolos completos — digestión, sueño, hormonas y energía, y movimiento — con todos sus bonus.',
+      l:['Los 4 protocolos completos, con sus bonus','Incluye lo que acabas de comprar','Pago único de US$57 · sin mensualidad'],
+      b:'Quiero la Colección completa →', u:'https://pay.hotmart.com/F106802825S?utm_source=gracias&utm_medium=upsell&utm_campaign='}
+  };
+  var o=UP[k]||UP._def, box=document.getElementById('zvUp');
+  if(box){
+    document.getElementById('zvUpH').textContent=o.h;
+    document.getElementById('zvUpP').textContent=o.p;
+    document.getElementById('zvUpL').innerHTML=o.l.map(function(x){return '<li>'+x+'</li>';}).join('');
+    var a=document.getElementById('zvUpA');
+    a.textContent=o.b; a.href=o.u+(o.u.slice(-1)==='='?(k||'generico'):'');
+    box.style.display='block';
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('#zvUpA');
+    if(!a)return;
+    try{
+      if((a.getAttribute('href')||'').indexOf('pay.hotmart.com')>-1){
+        fbq('track','InitiateCheckout',{content_name:'Coleccion Completa',content_category:'upsell',value:57.00,currency:'USD'});
+      }else{ fbq('trackCustom','RitualClick',{origen:'gracias',producto:k||'generico'}); }
+    }catch(_){}
+  },true);
 })();
 </script>
 </body>

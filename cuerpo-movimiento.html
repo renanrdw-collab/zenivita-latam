@@ -317,8 +317,8 @@
 <!-- Zenivita: Meta Pixel + eventos + captura de lead -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1298126082381332');fbq('track','PageView');fbq('track','ViewContent');
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="pay.hotmart.com"]');if(a){try{fbq('track','InitiateCheckout');}catch(_){}}},true);
+fbq('init','1298126082381332');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Cuerpo en Movimiento',content_category:'oferta',value:47.00,currency:'USD'});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="pay.hotmart.com"]');if(!a)return;try{var h=a.getAttribute('href')||'';var UP={'F106802825S':['Coleccion Completa',57.00],'K106813649H':['Aromaterapia Esencial',12.00],'D106813694T':['Tes e Infusiones',12.00]};var nom='Cuerpo en Movimiento',val=47.00;for(var c in UP){if(h.indexOf(c)>-1){nom=UP[c][0];val=UP[c][1];break;}}fbq('track','InitiateCheckout',{content_name:nom,content_category:'oferta',value:val,currency:'USD'});}catch(_){}},true);
 </script>
 <div id="zvLB" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(29,66,65,.62);align-items:center;justify-content:center;padding:20px;">
   <div class="zvbox" style="background:#FBF6F1;max-width:420px;width:100%;border-radius:20px;padding:30px 26px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;font-family:'Helvetica Neue',Arial,sans-serif;">

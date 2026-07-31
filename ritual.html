@@ -380,6 +380,21 @@ function renderOffer(){
     box.innerHTML='<div class="offer"><span class="tag">Tu siguiente nivel</span><h3>'+o.t+'</h3><p>'+o.d+'</p><a href="'+o.u+'?utm_source=ritual&utm_medium=app&utm_campaign=dia'+cc+'">Quiero el protocolo completo · '+o.p+' →</a><div class="pp">Garantía 7 días · OXXO, Nequi, Yape, tarjeta o PayPal</div></div>';
   } else box.classList.add('hidden');
 }
+/* clique nas ofertas do app (dia 2-6 e graduacao do dia 7) */
+var OFVAL={'intestino.html':['Protocolo Intestino Ligero',9.00],'sueno.html':['Protocolo Sueno Reparador',9.00],'oferta-30dias.html':['Protocolo 30 Dias',27.00]};
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('#offerBox a, #finBox a');
+  if(!a)return;
+  try{
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('wa.me')>-1){ fbq('trackCustom','RitualShare',{track:S_?S_.code:''}); return; }
+    var dest=h.split('?')[0], v=OFVAL[dest];
+    var cc=completedCount();
+    fbq('trackCustom','OfferClick',{origen:'ritual',dia:cc,track:S_?S_.code:'',destino:dest});
+    if(v){ fbq('track','ViewContent',{content_name:v[0],content_category:cc>=7?'ritual_graduada':'ritual_dia'+cc,value:v[1],currency:'USD'}); }
+  }catch(_){}
+},true);
+
 function renderFin(){
   var box=document.getElementById('finBox'), cc=completedCount();
   if(cc>=7){
