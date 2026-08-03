@@ -31,6 +31,7 @@ a{color:var(--dourado);font-weight:700}
 .upbtn{display:block;text-align:center;background:var(--douradoclaro);color:#22352b !important;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:999px;font-size:1rem}
 .upsell .mini{color:rgba(255,255,255,.72);margin:0}
 </style>
+<script src="zv-intent.js" defer></script>
 </head>
 <body>
 <div class="card">
@@ -87,6 +88,13 @@ function zvPurchase(o){try{
            p30:'Protocolo 30 Dias',cuerpo:'Cuerpo en Movimiento',coleccion:'Coleccion Completa'};
   var q=new URLSearchParams(location.search);
   var k=(q.get('p')||'').toLowerCase();
+  /* Respaldo: si Hotmart no manda ?p=, usar la ultima intencion de compra
+     registrada por zv-intent.js (mismo navegador, ultimas 6 horas).
+     ?p= siempre tiene prioridad. Ver zv-intent.js. */
+  if(!VAL[k]){try{
+    var I=JSON.parse(localStorage.getItem('zvIntent')||'null');
+    if(I&&VAL[I.k]&&(Date.now()-I.t)<216e5){k=I.k;}
+  }catch(_){}}
   var v=parseFloat(q.get('v'))||VAL[k]||9;
   zvPurchase({value:v,currency:'USD',content_name:NOM[k]||'Zenivita (generico)'});
 
