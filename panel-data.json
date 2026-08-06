@@ -1,31 +1,31 @@
 {
-  "updated": "2026-08-05 19:54 (BRT)",
+  "updated": "2026-08-06 10:53 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
-    "usdRate": 0.1962
+    "usdRate": 0.1953
   },
   "month": {
     "label": "Agosto/2026",
-    "daysElapsed": 5,
+    "daysElapsed": 6,
     "daysTotal": 31
   },
   "daily": [
     {
       "d": "23/07",
-      "spend": 12.74,
+      "spend": 12.68,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "24/07",
-      "spend": 16.81,
+      "spend": 16.73,
       "sales": 0,
       "rev": 0
     },
     {
       "d": "25/07",
-      "spend": 2.65,
+      "spend": 2.64,
       "sales": 0,
       "rev": 0
     }
