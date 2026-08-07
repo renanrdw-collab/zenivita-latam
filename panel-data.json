@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-06 22:29 (BRT)",
+  "updated": "2026-08-07 09:51 (BRT)",
   "currency": "US$",
   "fx": {
     "from": "BRL",
@@ -7,16 +7,10 @@
   },
   "month": {
     "label": "Agosto/2026",
-    "daysElapsed": 6,
+    "daysElapsed": 7,
     "daysTotal": 31
   },
   "daily": [
-    {
-      "d": "23/07",
-      "spend": 12.7,
-      "sales": 0,
-      "rev": 0
-    },
     {
       "d": "24/07",
       "spend": 16.75,
@@ -59,9 +53,9 @@
   ],
   "hotmartNetFactor": 0.85,
   "funnel": {
-    "impressions": 35424,
-    "clicks": 1530,
-    "lpviews": 992,
+    "impressions": 21797,
+    "clicks": 978,
+    "lpviews": 616,
     "checkouts": 0,
     "sales": 0
   },
